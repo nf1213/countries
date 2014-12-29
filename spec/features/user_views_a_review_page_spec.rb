@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "User visits the home page", %q(
+feature "User views a review", %q(
 
 
 ) do
