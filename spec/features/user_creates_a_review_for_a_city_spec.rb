@@ -1,4 +1,4 @@
-require 'rails_heper'
+require 'rails_helper'
 
 feature "User creates a review", %q(
   As a world traveller,

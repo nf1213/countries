@@ -23,7 +23,7 @@ feature "User creates a profile", %q(
     fill_in "Name", with: @user.name
     fill_in "Country of origin", with: @user.country_of_origin
     fill_in "Age", with: @user.age
-    fill_in "Gender", with @user.gender
+    fill_in "Gender", with: @user.gender
     fill_in "Picture url", with: @user.picture_url
     fill_in "About", with: @user.about
 
