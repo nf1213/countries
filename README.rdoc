@@ -1,5 +1,11 @@
 == README
 
+To get up and running, execute:
+
+```bash
+bundle && rake db:create db:migrate db:test:prepare
+```
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
