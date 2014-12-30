@@ -38,10 +38,8 @@ feature 'user registers', %Q{
     sign_up(@user)
     click_on "Sign Out"
     sign_up(@user)
-    save_and_open_page
     expect(page).to have_content("Username has already been taken")
     expect(page).to have_content('Email has already been taken')
-    save_and_open_page
   end
 
 end
