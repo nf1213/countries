@@ -11,10 +11,10 @@ feature "User creates a profile", %q(
     * User will have a profile page that other users can view
 ) do
 
-  # before(:each) do
-  #   @user = FactoryGirl.build(:user)
-  #   sign_up(@user)
-  # end
+  before(:each) do
+    @user = FactoryGirl.build(:user)
+    sign_up(@user)
+  end
   #
   # scenario "User fills in all fields" do
   #
