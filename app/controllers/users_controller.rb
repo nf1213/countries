@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
-
   before_action :get_user, only: [:show, :edit, :update]
-
 
   def get_user
     @user = User.find(params[:id])
@@ -22,17 +20,17 @@ class UsersController < ApplicationController
   end
 
   def update
-  @user.update(user_params)
-    if(@user.save
-      redirect_to @user, notice: "User Profile Updated")
+    @user.update(user_params)
+    if @user.save
+      redirect_to @user, notice: "User Profile Updated"
     else
       render :edit
     end
   end
 
-
   private
+
   def user_params
-      params.require(:user).permit(:country_of_origin, :gender, :age, :about)
+    params.require(:user).permit(:country_of_origin, :gender, :age, :about)
   end
 end

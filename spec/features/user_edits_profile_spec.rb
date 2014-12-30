@@ -66,7 +66,4 @@ feature "User edits a profile", %q(
     visit edit_user_path(@user1)
     expect(page).to have_content "You're not authorized to edit this profile!"
   end
-
-
-
 end
