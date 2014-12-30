@@ -1,6 +1,6 @@
 <h1>City Reviews</h1>
 
-A website that will allow people to rate cities(and maybe countries too)  This website will tell you which country has cities that have the best reviews on average.
+A website that will allow people to rate cities(and maybe countries too)  
 
 <h3>User Stories</h3>
 
