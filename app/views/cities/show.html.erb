@@ -1,0 +1,53 @@
+<%=link_to "Create a Review", new_country_city_review_path(country_id: params[:country_id], city_id: params[:id])%>
+
+<%#if @city.name.join(' ','_')%>
+<%#@full = @city.name.join(' ','_')%>
+<%#else%>
+<%@full = @city.name%>
+<%#end%>
+<%page = JSON.parse(open("http://en.wikipedia.org/w/api.php?&action=parse&section=0&prop=text&page="+"#{@full}"))%>
+
+<%#mw = MediaWiki::Gateway.new("http://en.wikipedia.org/w/api.php?format=jsonfm&action=parse&section=0&prop=text&page="+"#{@full}")%>
+<%#mw.login('RubyBot', 'pa$$w0rd')%>
+<%#mw.create('PageTitle', 'Hello world!', summary: 'My first page')%>
+
+
+
+<h1><%=@city.name%></h1>
+  <%if @reviews%>
+    <%@reviews.each do |f| %>
+      <div>
+        <li>
+          <%="Food: " + "#{f.food_rating}"%>
+        </li>
+        <li>
+          <%="Nightlife: " + "#{f.nightlife_rating}"%>
+        </li>
+        <li>
+          <%="Landmark: " + "#{f.landmark_rating}"%>
+        </li>
+        <li>
+          <%="Cost: " + "#{f.cost_rating}"%>
+        </li>
+        <li>
+          <%="Weather: " + "#{f.weather_rating}"%>
+        </li>
+        <li>
+          <%="Culture: " + "#{f.culture_rating}"%>
+        </li>
+          <%=f.description%>
+      </div>
+    <br>
+      <div>
+        <%="Posted by: " + "#{f.user_id}"%>
+      </div>
+        <%= button_to "Edit Review", edit_country_city_review_path(country_id: params[:country_id], city_id: params[:id], id: f.id), method: :get%>
+      <div>
+        <%= button_to "Delete Review", country_city_review_path(country_id: params[:country_id], city_id: params[:id], id: f.id) , :method => :delete %>
+       </div>
+    </br>
+
+  <%end%>
+<%end%>
+
+<%=link_to "back", country_path(id: params[:country_id])%>

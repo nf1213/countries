@@ -2653,6 +2653,8 @@ cities =
 for entry in cities
   if !Country.exists?(:name => entry["country"])
     country = Country.create(name: entry["country"])
-    City.create(name: entry["city"], country_id: country.id)
+  else
+    country = Country.find_by(name: entry["country"])
   end
+  City.create(name: entry["city"], country_id: country.id)
 end
