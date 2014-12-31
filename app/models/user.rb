@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
     presence: true,
     uniqueness: true
 
-  def genders
+  def self.genders
     [["Not specified", "Not specified"],
      ["Male", "Male"],
      ["Female", "Female"],
