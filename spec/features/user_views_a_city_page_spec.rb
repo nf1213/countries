@@ -18,7 +18,7 @@ feature "User views a city page", %q(
 
     expect(page).to have_content city.name
     expect(page).to have_content city.reviews.first.food_rating
-
+    expect(page).to have_content city.reviews.first.description
   end
 
 end
