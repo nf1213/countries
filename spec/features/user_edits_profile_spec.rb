@@ -30,7 +30,7 @@ feature "User edits a profile", %q(
   end
 
   scenario "User fills in all fields" do
-    visit edit_user_path(User.first.id)
+    visit edit_user_path(User.first)
 
     fill_in "Country of origin", with: @user.country_of_origin
     fill_in "Age", with: @user.age
@@ -45,14 +45,14 @@ feature "User edits a profile", %q(
   end
 
   scenario "User fills in no fields" do
-    visit edit_user_path(User.first.id)
+    visit edit_user_path(User.first)
 
     click_on "Edit Profile"
     expect(page).not_to have_content "Age cannot be blank"
   end
 
   scenario "User can't edit another users profile" do
-    @user1 = User.first.id
+    @user1 = User.first
     @user2 = FactoryGirl.create(:user)
     click_on "Sign Out"
     sign_in(@user2)
@@ -61,7 +61,7 @@ feature "User edits a profile", %q(
   end
 
   scenario "unregistered user can't edit another users profile" do
-    @user1 = User.first.id
+    @user1 = User.first
     click_on "Sign Out"
     visit edit_user_path(@user1)
     expect(page).to have_content "You're not authorized to edit this profile!"
