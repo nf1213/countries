@@ -2417,10 +2417,6 @@ cities =
     "country"=>"Tonga"
   },
   {
-    "city"=>"Rabi Island",
-    "country"=>""
-  },
-  {
     "city"=>"St. Louis",
     "country"=>"United States"
   },
@@ -2514,7 +2510,7 @@ cities =
   },
   {
     "city"=>"Vatican City",
-    "country"=>""
+    "country"=>"Vatican City"
   },
   {
     "city"=>"Split (city)",
@@ -2581,10 +2577,6 @@ cities =
     "country"=>"India"
   },
   {
-    "city"=>"Naypyidaw",
-    "country"=>""
-  },
-  {
     "city"=>"Phuket (city)",
     "country"=>"Thailand"
   },
@@ -2640,9 +2632,9 @@ cities =
 
 cities.each do |entry|
   if !Country.exists?(:name => entry["country"])
-    country = Country.create(name: entry["country"])
+    country = Country.create!(name: entry["country"])
   else
     country = Country.find_by(name: entry["country"])
   end
-  City.create(name: entry["city"], country_id: country.id)
+  City.create!(name: entry["city"], country_id: country.id)
 end
