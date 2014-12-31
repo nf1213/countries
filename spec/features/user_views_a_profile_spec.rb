@@ -15,7 +15,7 @@ feature "User views a profile", %q(
   end
 
   scenario "User will have a profile page that other users can view" do
-    visit user_path(@user.id)
+    visit user_path(@user)
 
     expect(page).to have_content @user.username
     expect(page).to have_content @user.age
