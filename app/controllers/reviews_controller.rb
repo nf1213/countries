@@ -17,13 +17,13 @@ class ReviewsController < ApplicationController
     @country = Country.find(params[:country_id])
     @city = City.find(params[:city_id])
     @review = Review.new(review_params)
-    @review.user_id = 1
+    @review.user = current_user
     @review.city_id = @city.id
 
     if @review.save
       redirect_to country_city_path(country_id: params[:country_id], id: params[:city_id])
     else
-      render 'new'
+      render "new"
     end
   end
 
@@ -37,13 +37,13 @@ class ReviewsController < ApplicationController
     @country = Country.find(params[:country_id])
     @city = City.find(params[:city_id])
     @review = Review.find(params[:id])
-    @review.user_id = 1
+    @review.user_id = current_user
     @review.city_id = @city.id
 
     if @review.update(review_params)
       redirect_to country_city_path(country_id: params[:country_id], id: params[:city_id])
     else
-      render 'edit'
+      render "edit"
     end
   end
 
@@ -57,6 +57,7 @@ class ReviewsController < ApplicationController
   end
 
   private
+
   def review_params
     params.require(:review).permit(:city_id, :user_id, :food_rating, :nightlife_rating, :landmark_rating, :cost_rating, :weather_rating, :culture_rating, :description)
   end

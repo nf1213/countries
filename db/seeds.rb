@@ -2633,24 +2633,12 @@ cities =
     "country"=>"Vanuatu"
   },
   {
-    "city"=>"South Tarawa",
-    "country"=>""
-  },
-  {
     "city"=>"Mata-Utu",
     "country"=>"Wallis and Futuna"
-  },
-  {
-    "city"=>"Anadyr (town)",
-    "country"=>""
-  },
-  {
-    "city"=>"Nukulaelae",
-    "country"=>""
   }
 ]
 
-for entry in cities
+cities.each do |entry|
   if !Country.exists?(:name => entry["country"])
     country = Country.create(name: entry["country"])
   else

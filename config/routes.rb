@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'cities#index'
+  root "countries#index"
   devise_for :users
 
   resources :countries do
