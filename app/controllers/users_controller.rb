@@ -33,6 +33,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:country_of_origin, :gender, :age, :about)
+    params.require(:user).permit(:country_of_origin, :gender, :about)
   end
 end

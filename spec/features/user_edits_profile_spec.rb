@@ -24,7 +24,7 @@ feature "User edits a profile", %q(
     click_on "Edit User Profile"
 
     expect(page).to have_content "Country of origin"
-    expect(page).to have_content "Age"
+    # expect(page).to have_content "Age"
     expect(page).to have_content "Gender"
     expect(page).to have_content "About"
     expect(page).to have_content "Editing Profile for #{@username_display}"
@@ -34,22 +34,15 @@ feature "User edits a profile", %q(
     visit edit_user_path(User.first)
 
     fill_in "Country of origin", with: @user.country_of_origin
-    fill_in "Age", with: @user.age
+    # fill_in "Age", with: @user.age
     fill_in "Gender", with: @user.gender
     fill_in "About", with: @user.about
     click_on "Edit Profile"
 
     expect(page).to have_content @user.country_of_origin
-    expect(page).to have_content @user.age
+    # expect(page).to have_content @user.age
     expect(page).to have_content @user.gender
     expect(page).to have_content @user.about
-  end
-
-  scenario "User fills in no fields" do
-    visit edit_user_path(User.first)
-
-    click_on "Edit Profile"
-    expect(page).not_to have_content "Age cannot be blank"
   end
 
   scenario "User can't edit another users profile" do

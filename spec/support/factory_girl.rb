@@ -7,7 +7,6 @@ FactoryGirl.define do
     password 'password'
     password_confirmation 'password'
     country_of_origin "USA" # optional
-    age 20 # optional
     gender "Female" # optional
     about "I love to travel. Travelling is great." # optional
   end
