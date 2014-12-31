@@ -12,8 +12,34 @@ feature "User deletes their review", %q(
     * Review will no longer be displayed
 ) do
 
-  scenario "" do
+  before(:each) do
+    @city = FactoryGirl.create(:city_with_reviews)
+    @review = @city.reviews.first
+  end
 
+  scenario "Unauthenticated user tries to delete a review" do
+    visit edit_country_city_review_path(@city.country.id, @city.id, @review.id)
+
+    expect(page).not_to have_content "Delete"
+  end
+
+  scenario "Unauthorized user tries to delete a review" do
+    user = FactoryGirl.create(:user)
+    sign_in(user)
+
+    visit edit_country_city_review_path(@city.country.id, @city.id, @review.id)
+
+    expect(page).not_to have_content "Delete"
+  end
+
+  scenario "User deletes their own review" do
+    user = @review.user
+    sign_in(user)
+    visit edit_country_city_review_path(@city.country.id, @city.id, @review.id)
+
+    click_on "Delete"
+
+    expect(page).to have_content "Review deleted"
   end
 
 end
