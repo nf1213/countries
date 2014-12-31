@@ -28,6 +28,12 @@
   <%= f.select :gender, User::GENDERS %>
 </div>
 
+<h3>Upload Profile Photo</h3>
+
+<div class ="field">
+  <%= f.file_field :avatar, multiple: false %>
+</div>
+
 <div class="actions">
   <%= f.submit "Edit Profile" %>
 </div>
