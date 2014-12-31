@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 
   def edit
     if current_user
-      if current_user.id != @user.id
+      if current_user != @user
         redirect_to @user, notice: "You're not authorized to edit this profile!"
       end
     else
