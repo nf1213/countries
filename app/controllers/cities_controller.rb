@@ -5,6 +5,6 @@ class CitiesController < ApplicationController
 
   def show
     @city = City.find(params[:id])
-    @reviews = Review.where(city_id: @city.id)
+    @reviews = Review.where(city_id: @city.id).page(params[:page]).per(5)
   end
 end

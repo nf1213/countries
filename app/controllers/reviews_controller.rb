@@ -21,7 +21,7 @@ class ReviewsController < ApplicationController
     @review.city_id = @city.id
 
     if @review.save
-      redirect_to country_city_path(country_id: params[:country_id], id: params[:city_id])
+      redirect_to country_city_path(@country, @city)
     else
       render "new"
     end
@@ -37,11 +37,11 @@ class ReviewsController < ApplicationController
     @country = Country.find(params[:country_id])
     @city = City.find(params[:city_id])
     @review = Review.find(params[:id])
-    @review.user_id = current_user
+    @review.user = current_user
     @review.city_id = @city.id
 
     if @review.update(review_params)
-      redirect_to country_city_path(country_id: params[:country_id], id: params[:city_id])
+      redirect_to country_city_path(@country, @city)
     else
       render "edit"
     end
@@ -53,7 +53,7 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
     @review.destroy
 
-    redirect_to country_city_path(country_id: params[:country_id], id: params[:city_id])
+    redirect_to country_city_path(@country, @city)
   end
 
   private

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :countries, only: [:index, :show] do
     resources :cities, only: [:index, :show] do
-      resources :reviews, only: [:show, :edit, :update, :destroy, :create, :new]
+      resources :reviews, only: [:index, :show, :edit, :update, :destroy, :create, :new]
     end
   end
 

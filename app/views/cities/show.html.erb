@@ -14,6 +14,8 @@
 
 <center><u><%=link_to "Write a New Travel Review", new_country_city_review_path(country_id: params[:country_id], city_id: params[:id])%></u></center>
 
+<%= paginate @reviews %>
+
 <% if @reviews %>
 
   <% @reviews.each do |review| %>

@@ -7,6 +7,6 @@ class Review < ActiveRecord::Base
   validates :landmark_rating, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 5 }
   validates :cost_rating, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 5 }
   validates :weather_rating, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 5 }
-  validates :user, presence: true
-  validates :city, presence: true
+  validates :user_id, presence: true
+  validates :city_id, presence: true
 end
