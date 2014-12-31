@@ -19,4 +19,5 @@ class AvatarUploader < CarrierWave::Uploader::Base
   def filename
     "profilephoto.png" if original_filename
   end
+
 end
