@@ -10,8 +10,8 @@ class User < ActiveRecord::Base
 
   def genders
     [["Not specified", "Not specified"],
-    ["Male", "Male"],
-    ["Female", "Female"],
-    ["Other", "Other"]]
+     ["Male", "Male"],
+     ["Female", "Female"],
+     ["Other", "Other"]]
   end
 end
