@@ -18,6 +18,7 @@ feature "User edits a profile", %q(
   end
 
   scenario "User visits their profile from the homepage" do
+    @username_display = @user.username.capitalize
     visit root_path
 
     click_on "Edit User Profile"
@@ -26,7 +27,7 @@ feature "User edits a profile", %q(
     expect(page).to have_content "Age"
     expect(page).to have_content "Gender"
     expect(page).to have_content "About"
-    expect(page).to have_content "Editing Profile for #{@user.username.capitalize}"
+    expect(page).to have_content "Editing Profile for #{@username_display}"
   end
 
   scenario "User fills in all fields" do
