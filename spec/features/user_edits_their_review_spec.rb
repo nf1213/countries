@@ -16,6 +16,10 @@ feature "User edits their review", %q(
   end
 
   scenario "Unauthenticated user tries to edit a review" do
+    visit country_city_review_path(@city.country.id, @city.id, @review.id)
+
+    expect(page).not_to have_content "Edit Review"
+    
     visit edit_country_city_review_path(@city.country.id, @city.id, @review.id)
 
     expect(page).to have_content "You must be signed in"

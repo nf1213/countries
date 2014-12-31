@@ -5,5 +5,11 @@
     <li>Gender: <%= @user.gender  %></li>
   <% end %>
   <li>About: <%= @user.about %></li>
-
 </ul>
+
+<h2>Reviews</h2>
+<% @user.reviews.each do |review| %>
+  <div>
+    <p>Food Rating: <%= %></p>
+  </div>
+<% end %>
