@@ -2,14 +2,14 @@ require 'factory_girl'
 
 FactoryGirl.define do
   factory :user do
-    sequence(:username){|n| "Nicole#{n}"}#required
-    sequence(:email) {|n| "user#{n}@example.com" }
+    sequence(:username) { |n| "Nicole#{n}" } # required
+    sequence(:email) { |n| "user#{n}@example.com" }
     password 'password'
     password_confirmation 'password'
-    country_of_origin "USA" #optional
-    age 20 #optional
-    gender "Female" #optional
-    about "I love to travel. Travelling is great." #optional
+    country_of_origin "USA" # optional
+    age 20 # optional
+    gender "Female" # optional
+    about "I love to travel. Travelling is great." # optional
   end
 
   # factory :review do
