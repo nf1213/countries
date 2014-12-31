@@ -19,7 +19,7 @@ feature "User edits their review", %q(
     visit country_city_review_path(@city.country.id, @city.id, @review.id)
 
     expect(page).not_to have_content "Edit Review"
-    
+
     visit edit_country_city_review_path(@city.country.id, @city.id, @review.id)
 
     expect(page).to have_content "You must be signed in"
@@ -47,5 +47,4 @@ feature "User edits their review", %q(
     expect(page).to have_content "An edited review"
     expect(page).to have_content "Food rating: 5 star"
   end
-
 end

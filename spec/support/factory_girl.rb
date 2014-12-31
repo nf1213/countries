@@ -24,7 +24,7 @@ FactoryGirl.define do
   end
 
   factory :city do
-    sequence(:name) {|n| "Space Boston#{n}" }
+    sequence(:name) { |n| "Space Boston#{n}" }
     country
 
     factory :city_with_reviews do
@@ -40,7 +40,7 @@ FactoryGirl.define do
   end
 
   factory :country do
-    sequence(:name) {|n| "Space Massachussettes#{n}" }
+    sequence(:name) { |n| "Space Massachussettes#{n}" }
 
     factory :country_with_cities do
 
