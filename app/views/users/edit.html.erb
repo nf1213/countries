@@ -25,7 +25,7 @@
 
 <div class="field">
   <%= f.label :gender %><br>
-  <%= f.select :gender, [["Not specified", "Not specified"], ["Male", "Male"], ["Female", "Female"], ["Other", "Other"]] %>
+  <%= f.select :gender, User.genders %>
 </div>
 
 <div class="actions">
