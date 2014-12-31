@@ -1,15 +1,11 @@
 class UsersController < ApplicationController
-  before_action :get_user, only: [:show, :edit, :update]
-
+  before_action :get_user, only: [:show, :edit, :update, :can_edit]
+  before_action :can_edit, only: [:edit, :update]
   def get_user
     @user = User.find(params[:id])
   end
 
-  def show
-
-  end
-
-  def edit
+  def can_edit
     if current_user
       if current_user != @user
         redirect_to @user, notice: "You're not authorized to edit this profile!"
@@ -17,6 +13,12 @@ class UsersController < ApplicationController
     else
       redirect_to @user, notice: "You're not authorized to edit this profile!"
     end
+  end
+
+  def show
+  end
+
+  def edit
   end
 
   def update
