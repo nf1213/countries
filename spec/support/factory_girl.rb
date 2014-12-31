@@ -20,7 +20,6 @@ FactoryGirl.define do
   #   weather_rating 5
   #   culture_rating 3
   #   description "the house with the place of the city of the french people"
-  #
   #   user
   #   city
   # end
@@ -33,7 +32,6 @@ FactoryGirl.define do
   #   weather_rating 5
   #   culture_rating 3
   #   description "the house with the place of the city of the french people"
-  #
   #   user
   #   city
   # end
@@ -46,7 +44,6 @@ FactoryGirl.define do
   #   weather_rating 5
   #   culture_rating 3cre
   #   description "the house with the place of the city of the french people"
-  #
   #   user
   #   city
   # end
