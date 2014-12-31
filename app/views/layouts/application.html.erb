@@ -6,7 +6,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  
+
   <nav class="top-bar">
     <ul class="title-area">
       <li class="name">
@@ -25,7 +25,9 @@
       </ul>
     </section>
   </nav>
-
+  <%- if current_user -%>
+    <%= link_to 'Edit User Profile', edit_user_path(current_user) %>
+  <%- end -%>
   <%- flash.each do |key, value| -%>
     <div class="flash flash-<%= key %>">
       <%= value %>
