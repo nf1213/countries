@@ -2,9 +2,9 @@ Rails.application.routes.draw do
   root "countries#index"
   devise_for :users
 
-  resources :countries do
-    resources :cities do
-      resources :reviews
+  resources :countries, only: [:index, :show] do
+    resources :cities, only: [:index, :show] do
+      resources :reviews, only: [:show, :edit, :update, :destroy, :create, :new]
     end
   end
 
