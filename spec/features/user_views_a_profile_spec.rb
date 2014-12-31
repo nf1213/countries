@@ -18,7 +18,7 @@ feature "User views a profile", %q(
     visit user_path(@user)
 
     expect(page).to have_content @user.username
-    expect(page).to have_content @user.age
+    expect(page).to have_content @user.country_of_origin
   end
 
   # scenario "user will see all of the reviews that "
