@@ -39,11 +39,13 @@ feature "User edits a profile", %q(
     fill_in "About", with: @user.about
     click_on "Edit Profile"
 
+    expect(page).to have_content "User Profile Updated"
+
     expect(page).to have_content @user.country_of_origin
-    # expect(page).to have_content @user.age
     expect(page).to have_content @user.gender
     expect(page).to have_content @user.about
   end
+
 
   scenario "User can't edit another users profile" do
     @user1 = User.first
