@@ -8,6 +8,9 @@ class User < ActiveRecord::Base
     uniqueness: true
 
   def genders
-    [["Not specified", "Not specified"], ["Male", "Male"], ["Female", "Female"], ["Other", "Other"]]
+    [["Not specified", "Not specified"],
+    ["Male", "Male"],
+    ["Female", "Female"],
+    ["Other", "Other"]]
   end
 end
