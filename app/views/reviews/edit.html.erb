@@ -14,4 +14,8 @@
 
 <br />
 
-<%= render :partial => "form" %>
+<%= form_for [@country, @city, @review], method: :patch do |f| %>
+
+<%= render :partial => "form_edit" %>
+
+<% end %>

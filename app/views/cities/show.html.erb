@@ -20,36 +20,47 @@
 
   <% @reviews.each do |review| %>
 
+    <div class="review" style="min-height: 180px">
+      <div style="display: inline-block; float: left; margin: 10px 20px">
+      <table style="border-radius: 10px">
+      <tr>
+        <td>Food</td><td><%= "#{review.food_rating}" %></td>
+      </tr>
+      <tr>
+        <td>Nightlife</td><td><%= "#{review.nightlife_rating}" %></td>
+      </tr>
+      <tr>
+        <td>Landmarks</td><td><%= "#{review.landmark_rating}" %></td>
+      </tr>
+      <tr>
+        <td>Cost</td><td><%= "#{review.cost_rating}" %></td>
+      </tr>
+      <tr>
+        <td>Weather</td><td><%= "#{review.weather_rating}" %></td>
+      </tr>
+      <tr>
+        <td>Culture</td><td><%= "#{review.culture_rating}" %></td>
+      </tr>
+      <tr>
+        <td><b>Overall</b></td><td></td>
+      </tr>
+    </table>
+      </div>
+      <div style="display: inline-block; float:left; margin: 20px 20px; width:400px; height: 215px; text-align: center; border: 1px solid grey; border-radius: 20px">
+        <br /><u>Comments:</u><hr />
+      <p><%= "#{review.description}" %></p>
+      </div>
+      <center>
+      <div style="display: block; clear: both">
+      <%= "Posted by: " + "#{review.user_id}" %>
+    </div>
     <div>
-      <li>
-        <%= "Food: " + "#{review.food_rating}" %>
-      </li>
-      <li>
-        <%= "Nightlife: " + "#{review.nightlife_rating}" %>
-      </li>
-      <li>
-        <%= "Landmark: " + "#{review.landmark_rating}" %>
-      </li>
-      <li>
-        <%= "Cost: " + "#{review.cost_rating}" %>
-      </li>
-      <li>
-        <%= "Weather: " + "#{review.weather_rating}" %>
-      </li>
-      <li>
-        <%= "Culture: " + "#{review.culture_rating}" %>
-      </li>
-        <%= review.description %>
-      </div>
-      <br />
-      <div>
-        <%= "Posted by: " + "#{review.user_id}" %>
-      </div>
-        <%= button_to "Edit Review", edit_country_city_review_path(country_id: params[:country_id], city_id: params[:id], id: review.id), :method => :get %>
-      <div>
-        <%= button_to "Delete Review", country_city_review_path(country_id: params[:country_id], city_id: params[:id], id: review.id), :method => :delete %>
-       </div>
-    </br>
+        <%= link_to "Edit Review", edit_country_city_review_path(country_id: params[:country_id], city_id: params[:id], id: review.id), :method => :get %>
+         |
+        <%= link_to "Delete Review", country_city_review_path(country_id: params[:country_id], city_id: params[:id], id: review.id), :method => :delete %>
+    </div>
+  </center>
+  </div>
 
   <% end %>
 
