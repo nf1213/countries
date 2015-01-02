@@ -20,47 +20,51 @@
 
   <% @reviews.each do |review| %>
 
-    <div class="review" style="min-height: 180px">
-      <div style="display: inline-block; float: left; margin: 10px 20px">
-      <table style="border-radius: 10px">
-      <tr>
-        <td>Food</td><td><%= "#{review.food_rating}" %></td>
-      </tr>
-      <tr>
-        <td>Nightlife</td><td><%= "#{review.nightlife_rating}" %></td>
-      </tr>
-      <tr>
-        <td>Landmarks</td><td><%= "#{review.landmark_rating}" %></td>
-      </tr>
-      <tr>
-        <td>Cost</td><td><%= "#{review.cost_rating}" %></td>
-      </tr>
-      <tr>
-        <td>Weather</td><td><%= "#{review.weather_rating}" %></td>
-      </tr>
-      <tr>
-        <td>Culture</td><td><%= "#{review.culture_rating}" %></td>
-      </tr>
-      <tr>
-        <td><b>Overall</b></td><td></td>
-      </tr>
-    </table>
+    <div class="review">
+      <div class="inline-left" style="margin: 10px 20px">
+        <table style="border-radius: 10px; width: 250px">
+          <col width="100">
+          <col width="150">
+          <tr>
+            <td>Food</td><td><% review.food_rating.times do %> <img src="/star.png" width=20 height=20> <% end %></td>
+          </tr>
+          <tr>
+            <td>Nightlife</td><td><% review.nightlife_rating.times do %> <img src="/star.png" width=20 height=20> <% end %></td>
+          </tr>
+          <tr>
+            <td>Landmarks</td><td><% review.landmark_rating.times do %> <img src="/star.png" width=20 height=20> <% end %></td>
+          </tr>
+          <tr>
+            <td>Cost</td><td><% review.cost_rating.times do %> <img src="/star.png" width=20 height=20> <% end %></td>
+          </tr>
+          <tr>
+            <td>Weather</td><td><% review.weather_rating.times do %> <img src="/star.png" width=20 height=20> <% end %></td>
+          </tr>
+          <tr>
+            <td>Culture</td><td><% review.culture_rating.times do %> <img src="/star.png" width=20 height=20> <% end %></td>
+          </tr>
+          <tr>
+            <td><b>Overall</b></td><td></td>
+          </tr>
+        </table>
       </div>
-      <div style="display: inline-block; float:left; margin: 20px 20px; width:400px; height: 215px; text-align: center; border: 1px solid grey; border-radius: 20px">
+
+      <div class="inline-left" id="comments">
         <br /><u>Comments:</u><hr />
-      <p><%= "#{review.description}" %></p>
+        <p><%= "#{review.description}" %></p>
       </div>
-      <center>
-      <div style="display: block; clear: both">
-      <%= "Posted by: " + "#{review.user_id}" %>
     </div>
-    <div>
+
+      <center>
+      <div style="display: block; clear: both; font-size: 14px">
+      <%= "Posted by: " + "#{User.find(review.user_id).username}" %>
+      </div>
+      <div style="font-size: 14px">
         <%= link_to "Edit Review", edit_country_city_review_path(country_id: params[:country_id], city_id: params[:id], id: review.id), :method => :get %>
          |
         <%= link_to "Delete Review", country_city_review_path(country_id: params[:country_id], city_id: params[:id], id: review.id), :method => :delete %>
-    </div>
-  </center>
-  </div>
+      </div>
+      </center>
 
   <% end %>
 

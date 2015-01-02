@@ -1,3 +1,27 @@
+.review {
+  border: 2px solid;
+  border-radius: 20px;
+  margin: 40px 200px 0px 200px;
+  min-height: 320px;
+  padding: 10px;
+  font-family: Trebuchet MS;
+  background-color: white;
+}
+
+.inline-left {
+  display: inline-block;
+  float: left;
+}
+
+#comments {
+  margin: 20px 20px;
+  width:400px;
+  height: 215px;
+  text-align: center;
+  border: 1px solid grey;
+  border-radius: 20px
+}
+
 h1 {
   color: white;
   text-align: center;
