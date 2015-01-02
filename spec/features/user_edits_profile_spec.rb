@@ -8,7 +8,7 @@ feature "User edits a profile", %q(
   Acceptance Criteria:
     - [ ] The user can visit the edit profile page from any page(test homepage)
     -[ ] User can optionally provide their country of origin, age, gender,
-      and an 'about me' section
+      a picture, and an 'about me' section
       * Changes will be shown on their public profile
   ) do
 
@@ -35,7 +35,7 @@ feature "User edits a profile", %q(
 
     fill_in "Country of origin", with: @user.country_of_origin
     # fill_in "Age", with: @user.age
-    fill_in "Gender", with: @user.gender
+    select "Female", from: "Gender"
     fill_in "About", with: @user.about
     click_on "Edit Profile"
 

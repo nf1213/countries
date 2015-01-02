@@ -7,4 +7,11 @@ class User < ActiveRecord::Base
   validates :username,
     presence: true,
     uniqueness: true
+
+  def self.genders
+    [["Not specified", "Not specified"],
+     ["Male", "Male"],
+     ["Female", "Female"],
+     ["Other", "Other"]]
+  end
 end

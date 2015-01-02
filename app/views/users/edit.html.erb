@@ -25,7 +25,7 @@
 
 <div class="field">
   <%= f.label :gender %><br>
-  <%= f.text_area :gender %>
+  <%= f.select :gender, User.genders %>
 </div>
 
 <div class="actions">

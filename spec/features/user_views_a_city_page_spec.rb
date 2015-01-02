@@ -6,13 +6,19 @@ feature "User views a city page", %q(
   So I can get info about that city and see its reviews
 
   Acceptance Criteria:
-    * User can see wikipedia information
+    * User can see wikipedia information (Extra feature)
     * User can see all the reviews of that city
     * User can see the name of the city
 ) do
 
-  scenario "" do
+  scenario "User goes to a city page and sees city info and reviews" do
+    city = FactoryGirl.create(:city_with_reviews)
+    visit cites_path
+    click_on city.name
 
+    expect(page).to have_content city.name
+    expect(page).to have_content city.reviews.first.food_rating
+    expect(page).to have_content city.reviews.first.description
   end
 
 end

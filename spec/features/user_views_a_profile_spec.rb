@@ -21,10 +21,10 @@ feature "User views a profile", %q(
     expect(page).to have_content @user.country_of_origin
   end
 
-  # scenario "user will see all of the reviews that "
-  #   visit user_path(@user.id)
-  #
-  #   @reviews = Review.create
-  #   expect(page).to have_content @user.reviews.first.title
-  # end
+  scenario "user will see all of the reviews that they created" do
+    visit user_path(@user.id)
+
+    @reviews = FactoryGirl.create(:review, user: @user)
+    expect(page).to have_content @user.reviews.first.title
+  end
 end
