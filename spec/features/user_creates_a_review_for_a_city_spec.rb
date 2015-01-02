@@ -21,7 +21,7 @@ feature "User creates a review", %q(
   scenario "Unauthenticated user attempts to create a reveiw" do
     visit new_country_city_review_path(@city.country.id, @city.id)
 
-    expect(page).to have_content "You must be logged in to create a review"
+    expect(page).to have_content "You need to sign in or sign up before continuing."
   end
 
   scenario "User creates a review with valid attributes" do
@@ -41,7 +41,7 @@ feature "User creates a review", %q(
 
     expect(page).to have_content "Review was successfully created!"
     expect(page).to have_content review.description
-    expect(page).to have_content "-#{@user.username}"
+    expect(page).to have_content "Posted by: #{@user.username}"
 
   end
 

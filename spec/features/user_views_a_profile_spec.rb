@@ -22,9 +22,8 @@ feature "User views a profile", %q(
   end
 
   scenario "user will see all of the reviews that they created" do
+    @review = FactoryGirl.create(:review, user: @user)
     visit user_path(@user.id)
-
-    @reviews = FactoryGirl.create(:review, user: @user)
-    expect(page).to have_content @user.reviews.first.title
+    expect(page).to have_content @review.description
   end
 end

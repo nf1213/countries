@@ -13,12 +13,12 @@ FactoryGirl.define do
 
   factory :review do
     food_rating 1
-    nighlife_rating 2
+    nightlife_rating 2
     landmark_rating 3
     cost_rating 4
     weather_rating 5
     culture_rating 3
-    description "the house with the place of the city of the french people"
+    sequence(:description){ |n| "#{n}the house with the place of the city of the french people"} 
     user
     city
   end
@@ -34,7 +34,7 @@ FactoryGirl.define do
       end
 
       after(:create) do |city, evaluator|
-        create_list(:reviews, evaluator.reviews_count, city: city)
+        create_list(:review, evaluator.reviews_count, city: city)
       end
     end
   end
@@ -49,7 +49,7 @@ FactoryGirl.define do
       end
 
       after(:create) do |country, evaluator|
-        create_list(:cities, evaluator.cities_count, country: country)
+        create_list(:city, evaluator.cities_count, country: country)
       end
     end
   end

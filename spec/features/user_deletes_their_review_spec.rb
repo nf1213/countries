@@ -13,8 +13,9 @@ feature "User deletes their review", %q(
 ) do
 
   before(:each) do
-    @city = FactoryGirl.create(:city_with_reviews)
-    @review = @city.reviews.first
+    @city = FactoryGirl.create(:city)
+    @review = FactoryGirl.create(:review)
+    @user = FactoryGirl.create(:user)
   end
 
   scenario "Unauthenticated user tries to delete a review" do
@@ -24,8 +25,7 @@ feature "User deletes their review", %q(
   end
 
   scenario "Unauthorized user tries to delete a review" do
-    user = FactoryGirl.create(:user)
-    sign_in(user)
+    sign_in(@user)
 
     visit edit_country_city_review_path(@city.country.id, @city.id, @review.id)
 
@@ -33,11 +33,12 @@ feature "User deletes their review", %q(
   end
 
   scenario "User deletes their own review" do
-    user = @review.user
-    sign_in(user)
+    @review = FactoryGirl.create(:review, user: @user)
+    sign_in(@user)
+
     visit edit_country_city_review_path(@city.country.id, @city.id, @review.id)
 
-    click_on "Delete"
+    click_on "Delete Review"
 
     expect(page).to have_content "Review deleted"
   end

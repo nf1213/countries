@@ -13,7 +13,7 @@ feature "User views a city page", %q(
 
   scenario "User goes to a city page and sees city info and reviews" do
     city = FactoryGirl.create(:city_with_reviews)
-    visit cites_path
+    visit country_path(city.country.id)
     click_on city.name
 
     expect(page).to have_content city.name

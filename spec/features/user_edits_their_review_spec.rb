@@ -11,18 +11,18 @@ feature "User edits their review", %q(
 ) do
 
   before(:each) do
-    @city = FactoryGirl.create(:city_with_reviews)
-    @review = @city.reviews.first
+    @city = FactoryGirl.create(:city)
+    @review = FactoryGirl.create(:review, city: @city)
   end
 
   scenario "Unauthenticated user tries to edit a review" do
-    visit country_city_review_path(@city.country.id, @city.id, @review.id)
-
-    expect(page).not_to have_content "Edit Review"
+    # visit country_city_review_path(@city.country.id, @city.id, @review.id)
+    #
+    # expect(page).not_to have_content "Edit Review"
 
     visit edit_country_city_review_path(@city.country.id, @city.id, @review.id)
 
-    expect(page).to have_content "You must be signed in"
+    expect(page).to have_content "You need to sign in or sign up before continuing."
   end
 
   scenario "Unauthorized user tries to edit a review" do
@@ -35,16 +35,19 @@ feature "User edits their review", %q(
   end
 
   scenario "User edits their own review" do
-    user = @review.user
+    user = FactoryGirl.create(:user)
+    @review = FactoryGirl.create(:review, user:user)
     sign_in(user)
+
     visit edit_country_city_review_path(@city.country.id, @city.id, @review.id)
 
     select "5 star", from: "Food rating"
     select "1 star", from: "Nightlife rating"
     fill_in "Description", with: "An edited review"
 
+    click_button "Update"
+
     expect(page).to have_content "Review succesfully updated"
     expect(page).to have_content "An edited review"
-    expect(page).to have_content "Food rating: 5 star"
   end
 end
