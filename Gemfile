@@ -21,6 +21,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'carrierwave'
 gem 'fog'
 
+gem 'nokogiri'
+gem 'mediawiki-gateway'
+gem 'restclient'
+gem 'kaminari'
+
+gem 'rails4-autocomplete'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
