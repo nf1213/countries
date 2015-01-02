@@ -31,12 +31,13 @@ feature "User edits their review", %q(
 
     visit edit_country_city_review_path(@city.country.id, @city.id, @review.id)
 
-    expect(page).to have_content "You are not authorized to edit this review"
+    expect(page).to have_content
+      "You are not authorized to edit this review"
   end
 
   scenario "User edits their own review" do
     user = FactoryGirl.create(:user)
-    @review = FactoryGirl.create(:review, user:user)
+    @review = FactoryGirl.create(:review, user: user)
     sign_in(user)
 
     visit edit_country_city_review_path(@city.country.id, @city.id, @review.id)

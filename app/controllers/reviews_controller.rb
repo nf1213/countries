@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user!,
+    only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @reviews = Review.order(created_at: :desc)
@@ -23,7 +24,8 @@ class ReviewsController < ApplicationController
     @review.city_id = @city.id
 
     if @review.save
-      redirect_to country_city_path(@country, @city), notice: "Review was successfully created!"
+      redirect_to country_city_path(@country, @city),
+        notice: "Review was successfully created!"
     else
       render "new"
     end
@@ -34,7 +36,8 @@ class ReviewsController < ApplicationController
     @city = City.find(params[:city_id])
     @review = Review.find(params[:id])
     if @review.user != current_user
-      redirect_to country_city_path(@country, @city), notice: "You are not authorized to edit this review"
+      redirect_to country_city_path(@country, @city),
+        notice: "You are not authorized to edit this review"
     end
   end
 
@@ -43,13 +46,15 @@ class ReviewsController < ApplicationController
     @city = City.find(params[:city_id])
     @review = Review.find(params[:id])
     if @review.user != current_user
-      redirect_to country_city_path(@country, @city), notice: "You are not authorized to edit this review"
+      redirect_to country_city_path(@country, @city),
+        notice: "You are not authorized to edit this review"
     end
     @review.user = current_user
     @review.city_id = @city.id
 
     if @review.update(review_params)
-      redirect_to country_city_path(@country, @city), notice: "Review succesfully updated"
+      redirect_to country_city_path(@country, @city),
+        notice: "Review succesfully updated"
     else
       render "edit"
     end
