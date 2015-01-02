@@ -1,0 +1,27 @@
+h1 {
+  color: white;
+  text-align: center;
+}
+
+.link a {
+  color: white;
+  margin: 100px 100px;
+  font-family: Trebuchet MS;
+}
+
+.link a:hover {
+  color: #58D3F7;
+}
+
+#container {
+    height: 500px;
+    min-width: 310px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.loading {
+    margin-top: 10em;
+    text-align: center;
+    color: gray;
+}
