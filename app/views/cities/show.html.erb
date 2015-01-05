@@ -57,12 +57,13 @@
 
       <center>
       <div style="display: block; clear: both; font-size: 14px">
-      <%= "Posted by: " + "#{User.find(review.user_id).username}" %>
+      <%= "Posted by: " + "#{review.user.username}" %>
       </div>
       <div style="font-size: 14px">
         <%= link_to "Edit Review", edit_country_city_review_path(country_id: params[:country_id], city_id: params[:id], id: review.id), :method => :get %>
          |
         <%= link_to "Delete Review", country_city_review_path(country_id: params[:country_id], city_id: params[:id], id: review.id), :method => :delete %>
+
       </div>
       </center>
 

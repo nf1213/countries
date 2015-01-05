@@ -2,10 +2,11 @@
 <div>
   <%= f.label :food_rating %>
   <% Review.stars.each do |star| %>
-    <%= f.radio_button :food_rating, star[0].to_i %>
-    <%= f.label :food_rating, star, value: star %>
+  <%= f.radio_button :food_rating, star[0].to_i %>
+  <%= f.label :food_rating, star, value: star %>
   <% end %>
 </div>
+
 <br />
 <div>
   <%= f.label :nightlife_rating %>
@@ -18,32 +19,32 @@
 <div>
   <%= f.label :landmark_rating %>
   <% Review.stars.each do |star| %>
-    <%= f.radio_button :landmark_rating, star[0].to_i %>
-    <%= f.label :landmark_rating, star, value: star %>
+  <%= f.radio_button :landmark_rating, star[0].to_i %>
+  <%= f.label :landmark_rating, star, value: star %>
   <% end %>
 </div>
 <br />
 <div>
   <%= f.label :cost_rating %>
   <% Review.stars.each do |star| %>
-    <%= f.radio_button :cost_rating, star[0].to_i %>
-    <%= f.label :cost_rating, star, value: star %>
+  <%= f.radio_button :cost_rating, star[0].to_i %>
+  <%= f.label :cost_rating, star, value: star %>
   <% end %>
 </div>
 <br />
 <div>
   <%= f.label :weather_rating %>
   <% Review.stars.each do |star| %>
-    <%= f.radio_button :weather_rating, star[0].to_i %>
-    <%= f.label :weather_rating, star, value: star %>
+  <%= f.radio_button :weather_rating, star[0].to_i %>
+  <%= f.label :weather_rating, star, value: star %>
   <% end %>
 </div>
 <br />
 <div>
   <%= f.label :culture_rating %>
   <% Review.stars.each do |star| %>
-    <%= f.radio_button :culture_rating, star[0].to_i %>
-    <%= f.label :culture_rating, star, value: star %>
+  <%= f.radio_button :culture_rating, star[0].to_i %>
+  <%= f.label :culture_rating, star, value: star %>
   <% end %>
 </div>
 <br />

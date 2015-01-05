@@ -1,7 +1,41 @@
 <h1> <%= @user.username.capitalize %>'s Profile </h1>
 <ul>
   <li>Country of origin: <%= @user.country_of_origin %></li>
-  <li>Gender: <%= @user.gender  %></li>
+  <% unless @user.unspecified_gender? %>
+    <li>Gender: <%= @user.gender  %></li>
+  <% end %>
   <li>About: <%= @user.about %></li>
-
 </ul>
+
+<h2>Reviews</h2>
+<% @user.reviews.each do |review| %>
+<div>
+  <h4>Review for: <%= review.city.name %>, <%= review.city.country.name %></h4>
+  <ul>
+    <li>
+      Food: <%= review.food_rating %>
+    </li>
+    <li>
+      Nightlife: <%= review.nightlife_rating %>
+    </li>
+    <li>
+      Landmark: <%= review.landmark_rating %>
+    </li>
+    <li>
+      Cost: <%= review.cost_rating %>
+    </li>
+    <li>
+      Weather: <%= review.weather_rating %>
+    </li>
+    <li>
+      Culture: <%= review.culture_rating %>
+    </li>
+  </ul>
+  <%= review.description %>
+  </div>
+  <br>
+  <%= button_to "Edit Review", edit_country_city_review_path(country_id: review.city.country.id, city_id: review.city.id, id: review.id), :method => :get %>
+  <div>
+    <%= button_to "Delete Review", country_city_review_path(country_id: review.city.country.id, city_id: review.city.id, id: review.id), :method => :delete %>
+  </div>
+<% end %>
