@@ -16,22 +16,50 @@ feature "User votes for a review", %q(
     @review = FactoryGirl.create(:review)
     @city = @review.city
     @country = @city.country
+    @user = FactoryGirl.create(:user)
   end
 
   scenario "an unauthorized user tries to vote" do
+    visit country_city_path(@country, @city)
 
+   click_on "UP"
+
+    expect(page).to have_content "You need to sign in or sign up before continuing."
   end
 
   scenario "a user successfully votes" do
+    sign_in(@user)
 
+    visit country_city_path(@country, @city)
+
+    click_on "UP"
+
+    expect(page).to have_content "You have voted!"
+    expect(page).to have_content "Score: 1"
   end
 
   scenario "a user changes their vote" do
+    sign_in(@user)
 
+    visit country_city_path(@country, @city)
+
+    click_on "UP"
+    click_on "DOWN"
+
+    expect(page).to have_content "You have voted!"
+    expect(page).to have_content "Score: -1"
   end
 
   scenario "a user tries to upvote twice" do
+    sign_in(@user)
 
+    visit country_city_path(@country, @city)
+
+    click_on "UP"
+    click_on "UP"
+
+    expect(page).to have_content "You already voted!"
+    expect(page).to have_content "Score: 1"
   end
 
 end
