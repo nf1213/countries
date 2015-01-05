@@ -41,11 +41,11 @@ feature "User edits their review", %q(
 
     visit edit_country_city_review_path(@city.country, @city, @review)
 
-    select "5 star", from: "Food rating"
-    select "1 star", from: "Nightlife rating"
+    choose "review_food_rating_5"
+    choose "review_food_rating_1"
     fill_in "Description", with: "An edited review"
 
-    click_button "Update"
+    click_button "Submit"
 
     expect(page).to have_content "Review succesfully updated"
     expect(page).to have_content "An edited review"

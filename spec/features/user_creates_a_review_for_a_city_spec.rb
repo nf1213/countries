@@ -29,12 +29,12 @@ feature "User creates a review", %q(
     sign_in(@user)
     visit new_country_city_review_path(@city.country, @city)
 
-    select "#{review.food_rating} star", from: "Food rating"
-    select "#{review.nightlife_rating} star", from: "Nightlife rating"
-    select "#{review.landmark_rating} star", from: "Landmark rating"
-    select "#{review.cost_rating} star", from: "Cost rating"
-    select "#{review.weather_rating} star", from: "Weather rating"
-    select "#{review.culture_rating} star", from: "Culture rating"
+    choose "review_food_rating_#{review.food_rating}"
+    choose "review_nightlife_rating_#{review.nightlife_rating}"
+    choose "review_landmark_rating_#{review.landmark_rating}"
+    choose "review_cost_rating_#{review.cost_rating}"
+    choose "review_weather_rating_#{review.weather_rating}"
+    choose "review_culture_rating_#{review.culture_rating}"
     fill_in "Description", with: review.description
 
     click_on "Submit"
