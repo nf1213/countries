@@ -19,10 +19,12 @@ ActiveRecord::Schema.define(version: 20141231155009) do
   create_table "cities", force: :cascade do |t|
     t.string  "name",       null: false
     t.integer "country_id", null: false
+    t.integer "rating"
   end
 
   create_table "countries", force: :cascade do |t|
-    t.string "name", null: false
+    t.string  "name",   null: false
+    t.integer "rating"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -34,6 +36,7 @@ ActiveRecord::Schema.define(version: 20141231155009) do
     t.integer  "cost_rating",      null: false
     t.integer  "weather_rating",   null: false
     t.integer  "culture_rating",   null: false
+    t.float    "overall_rating"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"

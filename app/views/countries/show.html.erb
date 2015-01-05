@@ -1,6 +1,6 @@
 <br />
 <h1 class="title" style="color: white; font-family: Trebuchet MS"><%=@country.name%></h1>
-
+<center><p>Country Rating: <b><%= @country.rating %></b> / 100</p></center>
 <div>
   <%@cities.each do |city|%>
     <p class="link"><%=link_to city.name, country_city_path(@country, id: city.id) %></p>

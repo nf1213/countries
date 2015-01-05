@@ -1,4 +1,5 @@
 class Review < ActiveRecord::Base
+
   belongs_to :user
   belongs_to :city
   validates :food_rating, numericality: { only_integer: true,
@@ -23,4 +24,11 @@ class Review < ActiveRecord::Base
   def self.stars
     ["1 star", "2 stars", "3 stars", "4 stars", "5 stars"]
   end
+
+  def update_overall_rating
+    @sum = (self.food_rating + self.culture_rating + self.nightlife_rating + self.landmark_rating + self.cost_rating + self.weather_rating)*1.0
+    @average = (@sum/6).round(1)
+    update_attributes(overall_rating: @average)
+  end
+
 end
