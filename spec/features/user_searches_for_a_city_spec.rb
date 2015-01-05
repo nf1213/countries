@@ -13,7 +13,7 @@ feature "User searches for a city", %q(
   end
 
 
-  scenario "User searches for a city with valid attributes" do
+  scenario "User searches for a city with valid attributes in index path" do
 
     visit '/'
 
@@ -26,9 +26,33 @@ feature "User searches for a city", %q(
   end
 
 
-  scenario "User searches for a city with invalid attributes" do
+  scenario "User searches for a city with invalid attributes in index path" do
 
     visit '/'
+
+    fill_in 'q', with: ''
+
+    click_on "Search"
+
+    expect(page).to have_content "You must input a character"
+
+  end
+
+    scenario "User searches for a city with valid attributes in search page" do
+
+    visit '/search'
+
+    fill_in 'q', with: 'Space'
+
+    click_on "Search"
+
+    expect(page).to have_content "Space Boston"
+
+  end
+
+  scenario "User searches for a city with invalid attributes in search path" do
+
+    visit '/search'
 
     fill_in 'q', with: ''
 
