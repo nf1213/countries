@@ -1,4 +1,12 @@
+<<<<<<< HEAD
 <% if !Rails.env.test? %>
+=======
+<%= form_for search_path, method: :get do |f| %>
+  <%= f.label "Search for City:" %>
+  <%= text_field_tag :q, params[:q] %>
+  <%= submit_tag "Search", name: nil %>
+<% end %>
+>>>>>>> added error functions to search bar
 
 <%= content_for :extra_footer do %>
 
