@@ -1,17 +1,3 @@
 <h1><%= "Add your review" %></h1>
 
-<% if flash.any? %>
-  <div class="flash">
-    <div class="container">
-      <%flash[:notice].each do |f|%>
-      <li>
-        <%=f%>
-      <%end%>
-      </li>
-    </div>
-  </div>
-<% end %>
-
-<br/>
-
 <%= render partial: "form_new" %>
