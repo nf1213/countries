@@ -20,3 +20,29 @@
     background-color: #808083;
 }
 
+.col-3 {
+  flex: 1;
+  padding-left: 20px;
+  margin-left: 20px;
+}
+
+.eqWrap {
+  display: flex;
+  padding:20px;
+
+  width: 100%
+}
+
+li {
+  list-style:none;
+}
+
+.container{
+  margin: 0 auto;
+  width: 80%;
+}
+
+.city{
+  padding:5px;
+  margin: 0 auto;
+}

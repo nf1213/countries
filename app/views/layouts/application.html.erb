@@ -25,6 +25,8 @@
       </ul>
     </section>
   </nav>
+
+<div class="container">
   <%- if current_user -%>
     <%= link_to 'Edit User Profile', edit_user_path(current_user) %>
   <%- end -%>
@@ -42,6 +44,8 @@
       $(document).foundation();
     });
   <% end %>
+
+</div>
   <%= yield :extra_footer %>
 </body>
 </html>

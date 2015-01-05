@@ -1,46 +1,20 @@
-<h1 class="title" style="color: white; font-family: Trebuchet MS"><%=@country.name%></h1>
+<h1 class="title"><%=@country.name%></h1>
 
-
-  <% if @cities.size > 15 && @cities.size < 30 %>
-    <%= div_1_count = @cities.size/2 %>
-    <%= div_2_count = @cities.size/2 %>
-  <% elsif @cities.size > 30 %>
-    <%= div_1_count = @cities.size/3 %>
-    <%= div_2_count = @cities.size/3 %>
-    <%= div_3_count = @cities.size/3 %>
+<% groups_of = @cities.size/3 %>
+<div class = "container">
+  <div class = "eqWrap">
+  <% if !@cities.nil? && groups_of > 0 %>
+    <% @cities.in_groups_of(groups_of, false) do |group| %>
+        <div class="column">
+          <% group.each do |city| %>
+            <div class="city"><%= link_to city.name, country_city_path(@country, id: city.id) %></div>
+          <% end %>
+        </div>
+    <% end %>
+  <% else %>
+    <p> no cities have been added to this country, ask an admin to add one</p>
   <% end %>
+  </div class>
 
-  <!-- <% if @cities.size > 20  && @cities.size < 39 %>
-    <div class="city_2_columns">
-      <% (0..(div_1_count).each do |i| %>
-        <% city = @cities[i] %>
-        <p class="link"><%=link_to city.name, country_city_path(@country, id: city.id) %></p>
-      <% end %>
-    </div>
-    <div class="city_2_columns">
-      <% ((div_1_count)..(div_2_count)).each do |i| %>
-        <% city = @cities[i] %>
-        <p class="link"><%=link_to city.name, country_city_path(@country, id: city.id) %></p>
-      <% end %>
-    </div>
-  <% elseif @cities.size > 40 %> -->
-    <div class="city_3_columns">
-      <% (0..(div_1_count)).each do |i| %>
-        <% city = @cities[i] %>
-        <p class="link"><%=link_to city.name, country_city_path(@country, id: city.id) %></p>
-      <% end %>
-    </div>
-    <div class="city_3_columns">
-      <% ((div_1_count)..(div_2_count)).each do |i| %>
-      <% city = @cities[i] %>
-      <p class="link"><%=link_to city.name, country_city_path(@country, id: city.id) %></p>
-      <% end %>
-    </div>
 
-    <div class="city_3_columns">
-      <% ((div_2_count)..(div_3_count)).each do |i| %>
-        <% city = @cities[i] %>
-        <p class="link"><%=link_to city.name, country_city_path(@country, id: city.id) %></p>
-      <% end %>
-    <!-- </div>
-    <% end %> -->
+</div>
