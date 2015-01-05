@@ -190,6 +190,7 @@ GEM
       rest-client (~> 1.7)
     method_source (0.8.2)
     mime-types (2.4.3)
+    mini_magick (4.0.1)
     mini_portile (0.6.2)
     minitest (5.5.0)
     multi_json (1.10.1)
@@ -335,6 +336,7 @@ DEPENDENCIES
   kaminari
   launchy
   mediawiki-gateway
+  mini_magick
   nokogiri
   pg
   pry-rails
