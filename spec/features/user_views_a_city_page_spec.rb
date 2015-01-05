@@ -12,13 +12,15 @@ feature "User views a city page", %q(
 ) do
 
   scenario "User goes to a city page and sees city info and reviews" do
-    city = FactoryGirl.create(:city_with_reviews)
+    city = FactoryGirl.create(:city)
+    review = FactoryGirl.create(:review, city: city)
     visit country_path(city.country)
+    save_and_open_page
     click_on city.name
 
     expect(page).to have_content city.name
-    expect(page).to have_content city.reviews.first.food_rating
-    expect(page).to have_content city.reviews.first.description
+    expect(page).to have_content review.food_rating
+    expect(page).to have_content review.description
   end
 
 end

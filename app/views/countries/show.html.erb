@@ -1,20 +1,21 @@
 <h1 class="title"><%=@country.name%></h1>
 
-<% groups_of = @cities.size/3 %>
+<% groups_of = (@cities.size.to_f/3).ceil %>
 <div class = "container">
   <div class = "eqWrap">
-  <% if !@cities.nil? && groups_of > 0 %>
-    <% @cities.in_groups_of(groups_of, false) do |group| %>
-        <div class="column">
-          <% group.each do |city| %>
-            <div class="city"><%= link_to city.name, country_city_path(@country, id: city.id) %></div>
-          <% end %>
-        </div>
+    <% if @cities.size == 0 %>
+      <p> no cities have been added to this country, ask an admin to add one</p>
+    <% else %>
+      <% @cities.in_groups_of(groups_of, false) do |group| %>
+      <div class="column">
+        <% group.each do |city| %>
+        <div class="city"><%= link_to city.name, country_city_path(@country, id: city.id) %></div>
+        <% end %>
+      </div>
+      <% end %>
+
     <% end %>
-  <% else %>
-    <p> no cities have been added to this country, ask an admin to add one</p>
-  <% end %>
-  </div class>
+  </div>
 
 
 </div>
