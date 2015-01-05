@@ -35,7 +35,7 @@ feature "User creates a review", %q(
     choose "review_cost_rating_#{review.cost_rating}"
     choose "review_weather_rating_#{review.weather_rating}"
     choose "review_culture_rating_#{review.culture_rating}"
-    save_and_open_page
+
     fill_in "Description", with: review.description
 
     click_on "Submit"
