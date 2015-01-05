@@ -35,3 +35,4 @@ gem 'valid_attribute', group: [:development, :test]
 gem 'shoulda-matchers', group: [:development, :test], require: false
 gem "pry-rails", group: [:development, :test]
 gem "spring", group: [:development, :test]
+gem 'rails_12factor', group: :production
