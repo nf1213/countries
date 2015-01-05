@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @reviews = Review.order(created_at: :desc)
@@ -59,6 +59,9 @@ class ReviewsController < ApplicationController
     @country = Country.find(params[:country_id])
     @city = City.find(params[:city_id])
     @review = Review.find(params[:id])
+    if @review.user != current_user
+      redirect_to country_city_path(@country, @city), notice: "You are not authorized to destroy this review"
+    end
     @review.destroy
 
     redirect_to country_city_path(@country, @city), notice: "Review deleted"
