@@ -19,4 +19,8 @@ class Review < ActiveRecord::Base
   def star_selections
     [["1 star", 1], ["2 star", 2], ["3 star", 3], ["4 star", 4], ["5 star", 5]]
   end
+
+  def self.stars
+    ["1 star", "2 stars", "3 stars", "4 stars", "5 stars"]
+  end
 end

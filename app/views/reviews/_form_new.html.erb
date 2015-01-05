@@ -1,35 +1,44 @@
 <%= form_for [@country, @city, @review] do |f| %>
 <div>
-  <%= f.label :food_rating%>
-  <br>
-  <%= f.select :food_rating, @review.star_selections %>
+  <%= f.label :food_rating %><br>
+  <% Review.stars.each do |star| %>
+    <%= f.radio_button :food_rating, star[0].to_i %>
+    <%= f.label :food_rating, star, value: star %>
+  <% end %>
 </div>
+<br />
 <div>
-  <%= f.label :nightlife_rating%>
-  <br>
-  <%= f.select :nightlife_rating, @review.star_selections %>
+  <%= f.label :landmark_rating %><br>
+  <% Review.stars.each do |star| %>
+    <%= f.radio_button :landmark_rating, star[0].to_i %>
+    <%= f.label :landmark_rating, star, value: star %>
+  <% end %>
 </div>
+<br />
 <div>
-  <%= f.label :landmark_rating%>
-  <br>
-  <%= f.select :landmark_rating, @review.star_selections %>
+  <%= f.label :cost_rating %><br>
+    <% Review.stars.each do |star| %>
+    <%= f.radio_button :cost_rating, star[0].to_i %>
+  <%= f.label :cost_rating, star, value: star %>
+  <% end %>
 </div>
+<br />
 <div>
-  <%= f.label :cost_rating %>
-  <br>
-  <%= f.select :cost_rating, @review.star_selections %>
+  <%= f.label :weather_rating %><br>
+  <% Review.stars.each do |star| %>
+    <%= f.radio_button :weather_rating, star[0].to_i %>
+    <%= f.label :weather_rating, star, value: star %>
+  <% end %>
 </div>
+<br />
 <div>
-  <%= f.label :weather_rating %>
-  <br>
-  <%= f.select :weather_rating, @review.star_selections %>
-</div>
+  <%= f.label :culture_rating %><br>
+  <% Review.stars.each do |star| %>
+    <%= f.radio_button :culture_rating, star[0].to_i %>
+    <%= f.label :culture_rating, star, value: star %>
+  <% end %>
 <div>
-  <%= f.label :culture_rating %>
-  <br>
-  <%= f.select :culture_rating, @review.star_selections %>
-</div>
-<div>
+
   <%= f.label :description %>
   <br>
   <%= f.text_area :description, size: "40x10" %>
