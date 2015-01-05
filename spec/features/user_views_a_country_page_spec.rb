@@ -15,7 +15,7 @@ feature "User views a country page", %q(
   scenario "User sees only cities in that country" do
     country = FactoryGirl.create(:country_with_cities)
     outside_city = FactoryGirl.create(:city)
-    visit country_path(country.id)
+    visit country_path(country)
 
     expect(page).to have_content country.name
     expect(page).to have_content country.cities.first.name

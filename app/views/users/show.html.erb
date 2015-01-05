@@ -1,7 +1,7 @@
 <h1> <%= @user.username.capitalize %>'s Profile </h1>
 <ul>
   <li>Country of origin: <%= @user.country_of_origin %></li>
-  <% unless @user.gender == "Not specified" %>
+  <% unless @user.unspecified_gender? %>
     <li>Gender: <%= @user.gender  %></li>
   <% end %>
   <li>About: <%= @user.about %></li>
@@ -11,24 +11,26 @@
 <% @user.reviews.each do |review| %>
 <div>
   <h4>Review for: <%= review.city.name %>, <%= review.city.country.name %></h4>
-  <li>
-    <%= "Food: " + "#{review.food_rating}" %>
-  </li>
-  <li>
-    <%= "Nightlife: " + "#{review.nightlife_rating}" %>
-  </li>
-  <li>
-    <%= "Landmark: " + "#{review.landmark_rating}" %>
-  </li>
-  <li>
-    <%= "Cost: " + "#{review.cost_rating}" %>
-  </li>
-  <li>
-    <%= "Weather: " + "#{review.weather_rating}" %>
-  </li>
-  <li>
-    <%= "Culture: " + "#{review.culture_rating}" %>
-  </li>
+  <ul>
+    <li>
+      Food: <%= review.food_rating %>
+    </li>
+    <li>
+      Nightlife: <%= review.nightlife_rating %>
+    </li>
+    <li>
+      Landmark: <%= review.landmark_rating %>
+    </li>
+    <li>
+      Cost: <%= review.cost_rating %>
+    </li>
+    <li>
+      Weather: <%= review.weather_rating %>
+    </li>
+    <li>
+      Culture: <%= review.culture_rating %>
+    </li>
+  </ul>
   <%= review.description %>
   </div>
   <br>

@@ -20,7 +20,7 @@ feature "User edits their review", %q(
     #
     # expect(page).not_to have_content "Edit Review"
 
-    visit edit_country_city_review_path(@city.country.id, @city.id, @review.id)
+    visit edit_country_city_review_path(@city.country, @city, @review)
 
     expect(page).to have_content "You need to sign in or sign up before continuing."
   end
@@ -29,7 +29,7 @@ feature "User edits their review", %q(
     user = FactoryGirl.create(:user)
     sign_in(user)
 
-    visit edit_country_city_review_path(@city.country.id, @city.id, @review.id)
+    visit edit_country_city_review_path(@city.country, @city, @review)
 
     expect(page).to have_content "You are not authorized to edit this review"
   end
@@ -39,7 +39,7 @@ feature "User edits their review", %q(
     @review = FactoryGirl.create(:review, user: user)
     sign_in(user)
 
-    visit edit_country_city_review_path(@city.country.id, @city.id, @review.id)
+    visit edit_country_city_review_path(@city.country, @city, @review)
 
     select "5 star", from: "Food rating"
     select "1 star", from: "Nightlife rating"

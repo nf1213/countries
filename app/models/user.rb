@@ -1,4 +1,11 @@
 class User < ActiveRecord::Base
+
+  GENDERS = [
+    ["Not specified", "Not specified"],
+    ["Male", "Male"],
+    ["Female", "Female"],
+  ]
+
   has_many :reviews
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -8,10 +15,7 @@ class User < ActiveRecord::Base
     presence: true,
     uniqueness: true
 
-  def self.genders
-    [["Not specified", "Not specified"],
-     ["Male", "Male"],
-     ["Female", "Female"],
-     ["Other", "Other"]]
+  def unspecified_gender?
+    true if self.gender == "Not specified"
   end
 end

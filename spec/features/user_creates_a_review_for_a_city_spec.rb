@@ -19,7 +19,7 @@ feature "User creates a review", %q(
   end
 
   scenario "Unauthenticated user attempts to create a reveiw" do
-    visit new_country_city_review_path(@city.country.id, @city.id)
+    visit new_country_city_review_path(@city.country, @city)
 
     expect(page).to have_content "You need to sign in or sign up before continuing."
   end
@@ -27,7 +27,7 @@ feature "User creates a review", %q(
   scenario "User creates a review with valid attributes" do
     review = FactoryGirl.build(:review, user: @user)
     sign_in(@user)
-    visit new_country_city_review_path(@city.country.id, @city.id)
+    visit new_country_city_review_path(@city.country, @city)
 
     select "#{review.food_rating} star", from: "Food rating"
     select "#{review.nightlife_rating} star", from: "Nightlife rating"
