@@ -1,12 +1,13 @@
 <%= form_for search_path, method: :get do |f| %>
-  <%= f.label "Search for:" %>
+  <%= f.label 'Search for city' %>
   <%= text_field_tag :q, params[:q] %>
   <%= submit_tag "Search", name: nil %>
 <% end %>
+
 <%if @cities%>
-<% @cities.each do |city| %>
-<br>
-<%=link_to city.name, country_city_path(id: city.id, country_id: city.country_id)%>
-</br>
-<%end%>
+  <% @cities.each do |city| %>
+    <br>
+      <%=link_to city.name, country_city_path(id: city.id, country_id: city.country_id)%>
+    </br>
+  <%end%>
 <%end%>
