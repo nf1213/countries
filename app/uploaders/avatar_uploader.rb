@@ -1,9 +1,9 @@
 class AvatarUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
   if Rails.env.production? || Rails.env.development?
-   storage :fog
+    storage :fog
   else
-   storage :file
+    storage :file
   end
 
   def extension_white_list
@@ -14,7 +14,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  process :resize_to_fill => [150, 150]
+  process resize_to_fill: [150, 150]
 
   def filename
     "profilephoto.png" if original_filename

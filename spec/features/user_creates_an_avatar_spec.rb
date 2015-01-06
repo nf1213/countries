@@ -1,6 +1,6 @@
-require 'rails_helper'
+require "rails_helper"
 
-feature 'user signs in', %Q{
+feature "User signs in", %Q{
   As a signed up user
   I want to sign in
   So that I can see my profile photo and change it

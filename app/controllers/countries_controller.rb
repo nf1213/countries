@@ -11,7 +11,7 @@ class CountriesController < ApplicationController
         redirect_to "/", notice: "You must input a character"
       else
         @city = params[:q]
-        redirect_to :controller => "search", :action => "search", :q => @city
+        redirect_to controller: "search", action: "search", q: @city
       end
     end
   end
