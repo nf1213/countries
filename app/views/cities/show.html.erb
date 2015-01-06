@@ -56,19 +56,15 @@
 
       <div id="votes">
         <%= form_for(:vote, :url => votes_path) do |f| %>
-          <div id="up_vote">
-            <%= f.hidden_field :value, value: 1 %>
-            <%= f.hidden_field :review_id, value: review.id %>
-            <%= f.submit "UP" %>
-          </div>
+          <%= f.hidden_field :value, value: 1 %>
+          <%= f.hidden_field :review_id, value: review.id %>
+          <%= f.submit "",  id: "up_vote" %>
         <% end %>
         Score: <%= review.vote_average %>
         <%= form_for(:vote, :url => votes_path) do |f| %>
-          <div id="down_vote">
-            <%= f.hidden_field :value, value: -1 %>
-            <%= f.hidden_field :review_id, value: review.id %>
-            <%= f.submit "DOWN" %>
-          </div>
+          <%= f.hidden_field :value, value: -1 %>
+          <%= f.hidden_field :review_id, value: review.id %>
+          <%= f.submit "",  id: "down_vote" %>
         <% end %>
       </div>
     </div>
