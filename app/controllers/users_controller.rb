@@ -16,13 +16,16 @@ class UsersController < ApplicationController
   end
 
   def show
+    @uploader = AvatarUploader.new
   end
 
   def edit
   end
 
   def update
+    uploader = AvatarUploader.new
     @user.update(user_params)
+    uploader.store!(params[:avatar])
     if @user.save
       redirect_to @user, notice: "User Profile Updated"
     else
@@ -33,6 +36,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:country_of_origin, :gender, :about)
+    params.require(:user).permit(:country_of_origin, :gender, :about, :avatar)
   end
 end
