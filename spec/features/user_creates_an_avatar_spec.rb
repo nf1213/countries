@@ -31,7 +31,9 @@ feature 'user signs in', %Q{
 
     click_on "Edit Profile"
 
-     expect(page).to have_xpath("//img[@src=\"/uploads/user/avatar/#{@user.id}/profilephoto.jpg\"]")
+    save_and_open_page
+
+    expect(page).to have_selector("img[alt$='avatar']")
   end
 
 end

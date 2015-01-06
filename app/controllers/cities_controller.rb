@@ -4,6 +4,7 @@ class CitiesController < ApplicationController
     # The cities list is fixed, so no 'limit' or pagination necessary
   end
 
+
   def show
     @city = City.find(params[:id])
     @country = Country.find(@city.country_id)
@@ -13,4 +14,5 @@ class CitiesController < ApplicationController
     end
     @city.update_rating
   end
+
 end
