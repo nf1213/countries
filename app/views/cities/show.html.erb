@@ -71,7 +71,7 @@
 
       <center>
       <div style="display: block; clear: both; font-size: 14px">
-      <%= "Posted by: " + "#{review.user.username}" %>
+      <%= link_to "Posted by: #{review.user.username}", user_path(review.user) %>
       </div>
       <div style="font-size: 14px">
         <%= link_to "Edit Review", edit_country_city_review_path(country_id: params[:country_id], city_id: params[:id], id: review.id), :method => :get %>
