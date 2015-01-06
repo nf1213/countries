@@ -1,6 +1,8 @@
 class Review < ActiveRecord::Base
   belongs_to :user
   belongs_to :city
+  has_many :votes
+
   validates :food_rating, numericality: { only_integer: true,
     greater_than_or_equal_to: 1, less_than_or_equal_to: 5 }
   validates :culture_rating, numericality: { only_integer: true,
@@ -22,5 +24,13 @@ class Review < ActiveRecord::Base
 
   def self.stars
     ["1 star", "2 stars", "3 stars", "4 stars", "5 stars"]
+  end
+
+  def vote_average
+    sum = 0
+      votes.each do |vote|
+        sum += vote.value
+      end
+    sum
   end
 end
