@@ -18,6 +18,9 @@ gem 'jquery-rails'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem 'carrierwave'
+gem 'fog'
+
 gem 'nokogiri'
 gem 'mediawiki-gateway'
 gem 'restclient'

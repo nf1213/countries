@@ -1,12 +1,12 @@
 <h1> <%= @user.username.capitalize %>'s Profile </h1>
 
-  <%if @user.avatar.path == nil %>
+  <% if @user.avatar.path == nil %>
     <div>
-      <img src =<%=image_path("cat.png")%> />
+      <img src=<%=image_path("cat.png")%> />
     </div>
   <%else%>
     <div>
-      <img src =<%= @user.avatar%> alt =<%= "avatar"%> />
+      <img src=<%= @user.avatar%> alt =<%= "avatar"%> />
     </div>
   <%end%>
 
