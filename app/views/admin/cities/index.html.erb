@@ -1,0 +1,7 @@
+<h1>"Admin Page"</h1>
+
+<% @cities.each do |city| %>
+  <% @country = Country.find(city.country_id) %>
+  <%= city.name %>
+  <%= link_to 'Delete', country_city_path(@country, city), method: :delete  %> <br />
+<% end %>

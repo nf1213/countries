@@ -8,4 +8,13 @@ class CitiesController < ApplicationController
     @city = City.find(params[:id])
     @reviews = Review.where(city_id: @city.id).page(params[:page]).per(5)
   end
+
+  def destroy
+    @city = City.find(params[:id])
+    @city.destroy
+
+    redirect_to admin_path, notice: "City sucessfully deleted."
+  end
+
+
 end
