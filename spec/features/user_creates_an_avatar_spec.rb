@@ -27,7 +27,7 @@ feature 'user signs in', %Q{
 
     click_on "Edit User Profile"
 
-    attach_file 'Add a Photo', "./app/assets/images/dog.png"
+    attach_file "Add a Photo", "./app/assets/images/dog.png"
 
     click_on "Edit Profile"
 

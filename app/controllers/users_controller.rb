@@ -17,11 +17,9 @@ class UsersController < ApplicationController
 
   def show
     @uploader = AvatarUploader.new
-    #binding.pry
   end
 
   def edit
-
   end
 
   def update

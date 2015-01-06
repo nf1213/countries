@@ -1,6 +1,5 @@
 class AvatarUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
-
   if Rails.env.production? || Rails.env.development?
    storage :fog
   else
@@ -20,5 +19,4 @@ class AvatarUploader < CarrierWave::Uploader::Base
   def filename
     "profilephoto.png" if original_filename
   end
-
 end

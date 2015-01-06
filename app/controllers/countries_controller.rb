@@ -4,6 +4,7 @@ class CountriesController < ApplicationController
     @cities = City.where(country_id: params[:id]).order("name")
     @country.update_rating
   end
+
   def index
     if params[:q]
       if params[:q] == ""
@@ -13,6 +14,5 @@ class CountriesController < ApplicationController
         redirect_to :controller => "search", :action => "search", :q => @city
       end
     end
-
   end
 end
