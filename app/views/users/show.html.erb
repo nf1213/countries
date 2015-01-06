@@ -10,7 +10,7 @@
 <h2>Reviews</h2>
 <% @user.reviews.each do |review| %>
 <div>
-  <h4>Review for: <%= review.city.name %>, <%= review.city.country.name %></h4>
+  <h4>Review for: <%= link_to "#{review.city.name}, #{review.city.country.name}", country_city_path(review.city.country, review.city) %></h4>
   <ul>
     <li>
       Food: <%= review.food_rating %>
