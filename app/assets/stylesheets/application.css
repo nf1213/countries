@@ -46,3 +46,16 @@ li {
   padding:5px;
   margin: 0 auto;
 }
+
+.nav{
+  border-bottom: 1px solid #000000;
+  background: #2d2d2d;
+
+}
+
+.navbutton{
+  margin: 0 auto;
+  padding: 10px;
+  display: inline-block;
+  list-style: none;
+}

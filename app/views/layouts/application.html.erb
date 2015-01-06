@@ -28,8 +28,14 @@
 
 <div class="container">
   <%- if current_user -%>
-    <%= link_to 'Edit User Profile', edit_user_path(current_user) %>
-    <%= link_to 'View User Profile', user_path(current_user) %>
+    <div class="nav"></div>
+      <li class="navbutton">
+        <%= link_to 'Edit User Profile', edit_user_path(current_user) %>
+      </li>
+      <li class="navbutton">
+        <%= link_to 'View User Profile', user_path(current_user) %>
+      </li>
+    </div>
   <%- end -%>
   <%- flash.each do |key, value| -%>
     <div class="flash flash-<%= key %>">
