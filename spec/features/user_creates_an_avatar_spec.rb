@@ -7,8 +7,8 @@ feature 'user signs in', %Q{
 } do
 
   before(:each) do
-    @user = FactoryGirl.build(:user)
-    sign_up(@user)
+    @user = FactoryGirl.create(:user)
+    sign_in(@user)
   end
 
   scenario "User has default profile photo" do
@@ -31,8 +31,7 @@ feature 'user signs in', %Q{
 
     click_on "Edit Profile"
 
-    expect(page).to have_selector("img[src$='profilephoto.jpg']")
-    #expect(page).to have_selector("img[src$='dog.png']")
+     expect(page).to have_xpath("//img[@src=\"/uploads/user/avatar/#{@user.id}/profilephoto.jpg\"]")
   end
 
 end
