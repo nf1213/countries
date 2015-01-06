@@ -31,8 +31,6 @@ feature 'user signs in', %Q{
 
     click_on "Edit Profile"
 
-    save_and_open_page
-
     expect(page).to have_selector("img[alt$='avatar']")
   end
 
