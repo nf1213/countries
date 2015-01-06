@@ -28,9 +28,9 @@ class Review < ActiveRecord::Base
 
   def vote_average
     sum = 0
-      votes.each do |vote|
-        sum += vote.value
-      end
+    votes.each do |vote|
+      sum += vote.value
+    end
     sum
   end
 end

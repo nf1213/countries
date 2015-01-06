@@ -22,7 +22,7 @@ feature "User votes for a review", %q(
   scenario "an unauthorized user tries to vote" do
     visit country_city_path(@country, @city)
 
-   click_on "UP"
+    click_on "UP"
 
     expect(page).to have_content "You need to sign in or sign up before continuing."
   end

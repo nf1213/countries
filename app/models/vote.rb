@@ -10,5 +10,5 @@ class Vote < ActiveRecord::Base
     uniqueness: { scope: :review_id }
   validates :value,
     presence: true,
-    inclusion: {in: [-1, 1]}
+    inclusion: { in: [-1, 1] }
 end
