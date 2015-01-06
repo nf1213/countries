@@ -12,7 +12,14 @@ feature "User views a country page", %q(
     * The user can navigate from the country to one of the cities
 ) do
 
-  scenario "" do
+  scenario "User sees only cities in that country" do
+    country = FactoryGirl.create(:country_with_cities)
+    outside_city = FactoryGirl.create(:city)
+    visit country_path(country)
+
+    expect(page).to have_content country.name
+    expect(page).to have_content country.cities.first.name
+    expect(page).not_to have_content outside_city.name
 
   end
 

@@ -1,6 +1,8 @@
 class Review < ActiveRecord::Base
   belongs_to :user
   belongs_to :city
+  has_many :votes
+
   validates :food_rating, numericality: { only_integer: true,
     greater_than_or_equal_to: 1, less_than_or_equal_to: 5 }
   validates :culture_rating, numericality: { only_integer: true,
@@ -28,5 +30,13 @@ class Review < ActiveRecord::Base
     @sum = (food_rating + culture_rating + nightlife_rating + landmark_rating + cost_rating + weather_rating) * 1.0
     @average = (@sum / 6).round(1)
     update_attributes(overall_rating: @average)
+  end
+
+  def vote_average
+    sum = 0
+    votes.each do |vote|
+      sum += vote.value
+    end
+    sum
   end
 end

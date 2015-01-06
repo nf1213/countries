@@ -1,17 +1,4 @@
 <h1><%= "Edit your Review" %></h1>
 
-<% if flash.any? %>
-  <div class="flash">
-    <div class="container">
-      <%flash[:notice].each do |f|%>
-      <li>
-        <%=f%>
-      <%end%>
-      </li>
-    </div>
-  </div>
-<% end %>
-
-<br />
-
-<%= render :partial => "form_edit" %>
+<%= render partial: "form_edit" %>
+<%= button_to "Delete Review", country_city_review_path(country_id: params[:country_id], city_id: params[:city_id], id: @review.id), :method => :delete %>

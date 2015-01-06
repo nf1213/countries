@@ -11,41 +11,48 @@ FactoryGirl.define do
     about "I love to travel. Travelling is great." # optional
   end
 
-  # factory :review do
-  #   food_rating 1
-  #   nighlife_rating 2
-  #   landmark_rating 3
-  #   cost_rating 4
-  #   weather_rating 5
-  #   culture_rating 3
-  #   description "the house with the place of the city of the french people"
-  #   user
-  #   city
-  # end
+  factory :review do
+    food_rating 1
+    nightlife_rating 2
+    landmark_rating 3
+    cost_rating 4
+    weather_rating 5
+    culture_rating 3
+    sequence(:description) { |n| "#{n}the house with the place of the city of the french people" } 
+    user
+    city
+  end
 
-  # factory :city do
-  #   food_rating 1
-  #   nighlife_rating 2
-  #   landmark_rating 3
-  #   cost_rating 4
-  #   weather_rating 5
-  #   culture_rating 3
-  #   description "the house with the place of the city of the french people"
-  #   user
-  #   city
-  # end
-  #
-  # factory :country do
-  #   food_rating 1
-  #   nighlife_rating 2
-  #   landmark_rating 3
-  #   cost_rating 4
-  #   weather_rating 5
-  #   culture_rating 3cre
-  #   description "the house with the place of the city of the french people"
-  #   user
-  #   city
-  # end
+  factory :city do
+    sequence(:name) { |n| "Space Boston#{n}" }
+    country
+
+    factory :city_with_reviews do
+
+      transient do
+        reviews_count 5
+      end
+
+      after(:create) do |city, evaluator|
+        create_list(:review, evaluator.reviews_count, city: city)
+      end
+    end
+  end
+
+  factory :country do
+    sequence(:name) { |n| "Space Massachussettes#{n}" }
+
+    factory :country_with_cities do
+
+      transient do
+        cities_count 5
+      end
+
+      after(:create) do |country, evaluator|
+        create_list(:city, evaluator.cities_count, country: country)
+      end
+    end
+  end
 
 
 

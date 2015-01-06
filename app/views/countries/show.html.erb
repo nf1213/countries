@@ -1,8 +1,19 @@
-<br />
-<h1 class="title" style="color: white; font-family: Trebuchet MS"><%=@country.name%></h1>
-<center><p>Country Rating: <b><%= @country.rating %></b> / 100</p></center>
-<div>
-  <%@cities.each do |city|%>
-    <p class="link"><%=link_to city.name, country_city_path(@country, id: city.id) %></p>
-  <%end%>
+<h1 class="title"><%=@country.name%></h1>
+
+<% groups_of = (@cities.size.to_f/3).ceil %>
+<div class = "container">
+  <div class = "eqWrap">
+    <% if @cities.size == 0 %>
+      <p> no cities have been added to this country, ask an admin to add one</p>
+    <% else %>
+      <% @cities.in_groups_of(groups_of, false) do |group| %>
+      <div class="column">
+        <% group.each do |city| %>
+        <div class="city"><%= link_to city.name, country_city_path(@country, id: city.id) %></div>
+        <% end %>
+      </div>
+      <% end %>
+
+    <% end %>
+  </div>
 </div>
