@@ -18,6 +18,7 @@
 
  body {
     background-color: #808083;
+    font-family:Lato;
 }
 
 .col-3 {
@@ -45,4 +46,16 @@ li {
 .city{
   padding:5px;
   margin: 0 auto;
+}
+
+.top-bar {
+  background: none;
+  height: 58px;
+  line-height: 58px;
+  margin-bottom: 0;
+}
+
+.#title{
+  font-family:Lato;
+  font-size: 26px;
 }
