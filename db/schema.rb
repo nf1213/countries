@@ -19,10 +19,12 @@ ActiveRecord::Schema.define(version: 20150105160949) do
   create_table "cities", force: :cascade do |t|
     t.string  "name",       null: false
     t.integer "country_id", null: false
+    t.integer "rating"
   end
 
   create_table "countries", force: :cascade do |t|
-    t.string "name", null: false
+    t.string  "name",   null: false
+    t.integer "rating"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -34,6 +36,7 @@ ActiveRecord::Schema.define(version: 20150105160949) do
     t.integer  "cost_rating",      null: false
     t.integer  "weather_rating",   null: false
     t.integer  "culture_rating",   null: false
+    t.float    "overall_rating"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -56,7 +59,6 @@ ActiveRecord::Schema.define(version: 20150105160949) do
     t.string   "country_of_origin"
     t.string   "gender"
     t.text     "about"
-    t.string   "avatar"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
