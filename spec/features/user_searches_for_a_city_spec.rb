@@ -12,7 +12,6 @@ feature "User searches for a city", %q(
     @city = FactoryGirl.create(:city)
   end
 
-
   scenario "User searches for a city with valid attributes in index path" do
 
     visit '/'
@@ -24,7 +23,6 @@ feature "User searches for a city", %q(
     expect(page).to have_content "Space Boston"
 
   end
-
 
   scenario "User searches for a city with invalid attributes in index path" do
 
@@ -38,7 +36,7 @@ feature "User searches for a city", %q(
 
   end
 
-    scenario "User searches for a city with valid attributes in search page" do
+  scenario "User searches for a city with valid attributes in search page" do
 
     visit '/search'
 
