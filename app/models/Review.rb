@@ -26,7 +26,7 @@ class Review < ActiveRecord::Base
 
   def update_overall_rating
     @sum = (food_rating + culture_rating + nightlife_rating + landmark_rating + cost_rating + weather_rating) * 1.0
-    @average = (@sum/6).round(1)
+    @average = (@sum / 6).round(1)
     update_attributes(overall_rating: @average)
   end
 end
