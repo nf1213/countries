@@ -12,4 +12,13 @@ class CitiesController < ApplicationController
     end
     @city.update_rating
   end
+
+  def destroy
+    @city = City.find(params[:id])
+    @city.destroy
+
+    redirect_to admin_path, notice: "City sucessfully deleted."
+  end
+
+
 end

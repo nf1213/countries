@@ -9,6 +9,7 @@ FactoryGirl.define do
     country_of_origin "USA" # optional
     gender "Female" # optional
     about "I love to travel. Travelling is great." # optional
+    admin false
   end
 
   factory :review do
@@ -18,7 +19,7 @@ FactoryGirl.define do
     cost_rating 4
     weather_rating 5
     culture_rating 3
-    sequence(:description) { |n| "#{n}the house with the place of the city of the french people" }
+    sequence(:description) { |n| "#{n}the house with the place of the city." }
     user
     city
   end

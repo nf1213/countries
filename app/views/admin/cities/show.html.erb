@@ -1,0 +1,72 @@
+<%@full = @city.name%>
+
+<br />
+<h1><%= @city.name %></h1>
+
+<%= paginate @reviews %>
+
+<% if @reviews %>
+
+<% @reviews.each do |review| %>
+
+<div class="review">
+  <div class="inline-left" style="margin: 10px 20px">
+    <table style="border-radius: 10px; width: 250px">
+      <col width="100">
+      <col width="150">
+      <tr>
+        <td>Food</td><td><% review.food_rating.times do %> <img src="/star.png" width=20 height=20> <% end %></td>
+      </tr>
+      <tr>
+        <td>Nightlife</td><td><% review.nightlife_rating.times do %> <img src="/star.png" width=20 height=20> <% end %></td>
+      </tr>
+      <tr>
+        <td>Landmarks</td><td><% review.landmark_rating.times do %> <img src="/star.png" width=20 height=20> <% end %></td>
+      </tr>
+      <tr>
+        <td>Cost</td><td><% review.cost_rating.times do %> <img src="/star.png" width=20 height=20> <% end %></td>
+      </tr>
+      <tr>
+        <td>Weather</td><td><% review.weather_rating.times do %> <img src="/star.png" width=20 height=20> <% end %></td>
+      </tr>
+      <tr>
+        <td>Culture</td><td><% review.culture_rating.times do %> <img src="/star.png" width=20 height=20> <% end %></td>
+      </tr>
+      <tr>
+        <td><b>Overall</b></td><td></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="inline-left" id="comments">
+    <br /><u>Comments:</u><hr />
+    <p><%= "#{review.description}" %></p>
+  </div>
+
+  <div id="votes">
+    <%= form_for(:vote, :url => votes_path) do |f| %>
+    <%= f.hidden_field :value, value: 1 %>
+    <%= f.hidden_field :review_id, value: review.id %>
+    <%= f.submit "",  id: "up_vote" %>
+    <% end %>
+    Score: <%= review.vote_average %>
+    <%= form_for(:vote, :url => votes_path) do |f| %>
+    <%= f.hidden_field :value, value: -1 %>
+    <%= f.hidden_field :review_id, value: review.id %>
+    <%= f.submit "",  id: "down_vote" %>
+    <% end %>
+  </div>
+</div>
+
+<center>
+  <div style="display: block; clear: both; font-size: 14px">
+    <%= link_to "Posted by: #{review.user.username}", user_path(review.user) %>
+  </div>
+  <div style="font-size: 14px">
+    <%= link_to "Delete Review", admin_city_review_path(review.city, review), :method => :delete %>
+  </div>
+</center>
+
+<% end %>
+
+<% end %>
