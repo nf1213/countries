@@ -1,0 +1,8 @@
+<% form_for @cities do |f| %>
+  <%#=f.autocomplete_field :city_name,autocomplete_city_name_countries_path%>
+
+  <%= f.label country_name%>
+  <%= text_field_with_auto_complete country_name%>
+
+  <%= f.submit "submit"%>
+  <%end%>

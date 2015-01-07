@@ -15,7 +15,7 @@ feature "User views a city page", %q(
     city = FactoryGirl.create(:city)
     review = FactoryGirl.create(:review, city: city)
     visit country_path(city.country)
-    save_and_open_page
+
     click_on city.name
 
     expect(page).to have_content city.name

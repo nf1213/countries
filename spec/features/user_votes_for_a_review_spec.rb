@@ -22,7 +22,7 @@ feature "User votes for a review", %q(
   scenario "an unauthorized user tries to vote" do
     visit country_city_path(@country, @city)
 
-    click_on "UP"
+    find("#up_vote").click
 
     expect(page).to have_content "You need to sign in or sign up before continuing."
   end
@@ -32,7 +32,7 @@ feature "User votes for a review", %q(
 
     visit country_city_path(@country, @city)
 
-    click_on "UP"
+    find("#up_vote").click
 
     expect(page).to have_content "You have voted!"
     expect(page).to have_content "Score: 1"
@@ -43,8 +43,8 @@ feature "User votes for a review", %q(
 
     visit country_city_path(@country, @city)
 
-    click_on "UP"
-    click_on "DOWN"
+    find("#up_vote").click
+    find("#down_vote").click
 
     expect(page).to have_content "You have voted!"
     expect(page).to have_content "Score: -1"
@@ -55,8 +55,8 @@ feature "User votes for a review", %q(
 
     visit country_city_path(@country, @city)
 
-    click_on "UP"
-    click_on "UP"
+    find("#up_vote").click
+    find("#up_vote").click
 
     expect(page).to have_content "You already voted!"
     expect(page).to have_content "Score: 1"

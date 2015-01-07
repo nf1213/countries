@@ -1,9 +1,16 @@
+<%= form_for search_path, method: :get do |f| %>
+  <%= f.label "Search for City:" %>
+  <%= text_field_tag :q, params[:q] %>
+  <%= submit_tag "Search", name: nil %>
+<% end %>
+
+<% if !Rails.env.test? %>
 <%= content_for :extra_footer do %>
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <script src="http://code.highcharts.com/maps/highmaps.js"></script>
-    <script src="http://code.highcharts.com/maps/modules/exporting.js"></script>
-    <script src="http://code.highcharts.com/mapdata/custom/world.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="https://code.highcharts.com/maps/highmaps.js"></script>
+    <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/mapdata/custom/world.js"></script>
 
     <div id="container"></div>
 
@@ -14,1000 +21,1002 @@
     var data = [
     {
       "hc-key": "dz",
-      "value": 19,
+      "value": <%= Country.find(75).rating %>,
       "id": 75
     },
     {
       "hc-key": "ao",
-      "value": 17,
+      "value": <%= Country.find(92).rating %>,
       "id": 92
     },
     {
       "hc-key": "eg",
-      "value": 74,
+      "value": <%= Country.find(130).rating %>,
       "id": 130
     },
     {
       "hc-key": "bd",
-      "value": 10,
+      "value": <%= Country.find(172).rating %>,
       "id": 172
     },
     {
       "hc-key": "ne",
-      "value": 12,
+      "value": <%= Country.find(73).rating %>,
       "id": 73
     },
     {
       "hc-key": "qa",
-      "value": 5,
+      "value": <%= Country.find(156).rating %>,
       "id": 156
     },
     {
       "hc-key": "na",
-      "value": 6,
+      "value": 0,
       "id": 0
     },
     {
       "hc-key": "bg",
-      "value": 7,
+      "value": <%= Country.find(113).rating %>,
       "id": 113
     },
     {
       "hc-key": "bo",
-      "value": 8,
+      "value": <%= Country.find(30).rating %>,
       "id": 30
     },
     {
       "hc-key": "gh",
-      "value": 9,
+      "value": <%= Country.find(71).rating %>,
       "id": 71
     },
     {
       "hc-key": "pk",
-      "value": 73,
+      "value": <%= Country.find(163).rating %>,
       "id": 163
     },
     {
       "hc-key": "pa",
-      "value": 11,
+      "value": <%= Country.find(18).rating %>,
       "id": 18
     },
     {
       "hc-key": "jo",
-      "value": 12,
+      "value": <%= Country.find(141).rating %>,
       "id": 141
     },
     {
       "hc-key": "eh",
-      "value": 13,
+      "value": <%= Country.find(58).rating %>,
       "id": 58
     },
     {
       "hc-key": "ly",
-      "value": 14,
+      "value": <%= Country.find(91).rating %>,
       "id": 91
     },
     {
       "hc-key": "my",
-      "value": 15,
+      "value": <%= Country.find(16).rating %>,
       "id": 16
     },
     {
       "hc-key": "pr",
-      "value": 16,
+      "value": <%= Country.find(31).rating %>,
       "id": 31
     },
     {
       "hc-key": "kp",
-      "value": 17,
+      "value": <%= Country.find(184).rating %>,
       "id": 184
     },
     {
       "hc-key": "tz",
-      "value": 18,
+      "value": <%= Country.find(135).rating %>,
       "id": 135
     },
     {
       "hc-key": "pt",
-      "value": 19,
+      "value": <%= Country.find(50).rating %>,
       "id": 50
     },
     {
       "hc-key": "kh",
-      "value": 20,
+      "value": <%= Country.find(178).rating %>,
       "id": 178
     },
     {
       "hc-key": "py",
-      "value": 21,
+      "value": <%= Country.find(43).rating %>,
       "id": 43
     },
     {
       "hc-key": "sa",
-      "value": 22,
+      "value": <%= Country.find(145).rating %>,
       "id": 145
     },
     {
       "hc-key": "me",
-      "value": 23,
+      "value": <%= Country.find(106).rating %>,
       "id": 106
     },
     {
       "hc-key": "si",
-      "value": 24,
+      "value": <%= Country.find(95).rating %>,
       "id": 95
     },
     {
       "hc-key": "bf",
-      "value": 25,
+      "value": <%= Country.find(70).rating %>,
       "id": 70
     },
     {
       "hc-key": "ch",
-      "value": 26,
+      "value": <%= Country.find(80).rating %>,
       "id": 80
     },
     {
       "hc-key": "mr",
-      "value": 27,
+      "value": <%= Country.find(54).rating %>,
       "id": 54
     },
     {
       "hc-key": "hr",
-      "value": 28,
+      "value": <%= Country.find(100).rating %>,
       "id": 100
     },
     {
       "hc-key": "cl",
-      "value": 29,
+      "value": <%= Country.find(8).rating %>,
       "id": 8
     },
     {
       "hc-key": "cn",
-      "value": 30,
+      "value": <%= Country.find(170).rating %>,
       "id": 170
     },
     {
       "hc-key": "kn",
-      "value": 31,
+      "value": 0,
       "id": 0 //checked
     },
     {
       "hc-key": "jm",
-      "value": 32,
+      "value": <%= Country.find(21).rating %>,
       "id": 21
     },
     {
       "hc-key": "dj",
-      "value": 33,
+      "value": <%= Country.find(202).rating %>,
       "id": 202
     },
     {
       "hc-key": "gn",
-      "value": 34,
+      "value": <%= Country.find(56).rating %>,
       "id": 56
     },
     {
       "hc-key": "fi",
-      "value": 35,
+      "value": <%= Country.find(115).rating %>,
       "id": 115
     },
     {
       "hc-key": "uy",
-      "value": 36,
+      "value": <%= Country.find(45).rating %>,
       "id": 45
     },
     {
       "hc-key": "va",
-      "value": 37,
+      "value": 0,
       "id": 0 //probably
     },
     {
       "hc-key": "np",
-      "value": 38,
+      "value": <%= Country.find(169).rating %>,
       "id": 169
     },
     {
       "hc-key": "ma",
-      "value": 39,
+      "value": <%= Country.find(61).rating %>,
       "id": 61
     },
     {
       "hc-key": "ye",
-      "value": 40,
+      "value": <%= Country.find(203).rating %>,
       "id": 203
     },
     {
       "hc-key": "ph",
-      "value": 41,
+      "value": <%= Country.find(83).rating %>,
       "id": 83
     },
     {
       "hc-key": "za",
-      "value": 42,
+      "value": <%= Country.find(103).rating %>,
       "id": 103
     },
     {
       "hc-key": "ni",
-      "value": 43,
+      "value": <%= Country.find(13).rating %>,
       "id": 13
     },
     {
       "hc-key": "cyn",
-      "value": 44,
+      "value": 0,
       "id": 0 //probably
     },
     {
       "hc-key": "vi",
-      "value": 45,
+      "value": 0,
       "id": 0 //probably
     },
     {
       "hc-key": "sy",
-      "value": 46,
+      "value": <%= Country.find(123).rating %>,
       "id": 123
     },
     {
       "hc-key": "li",
-      "value": 47,
+      "value": <%= Country.find(85).rating %>,
       "id": 85
     },
     {
       "hc-key": "mt",
-      "value": 48,
+      "value": <%= Country.find(94).rating %>,
       "id": 94
     },
     {
       "hc-key": "kz",
-      "value": 49,
+      "value": <%= Country.find(166).rating %>,
       "id": 166
     },
     {
       "hc-key": "mn",
-      "value": 50,
+      "value": <%= Country.find(180).rating %>,
       "id": 180
     },
     {
       "hc-key": "sr",
-      "value": 51,
+      "value": <%= Country.find(46).rating %>,
       "id": 46
     },
     {
       "hc-key": "ie",
-      "value": 52,
+      "value": <%= Country.find(63).rating %>,
       "id": 63
     },
     {
       "hc-key": "dm",
-      "value": 53,
+      "value": <%= Country.find(38).rating %>,
       "id": 38
     },
     {
       "hc-key": "bj",
-      "value": 54,
+      "value": <%= Country.find(74).rating %>,
       "id": 74
     },
     {
       "hc-key": "ng",
-      "value": 55,
+      "value": <%= Country.find(76).rating %>,
       "id": 76
     },
     {
       "hc-key": "be",
-      "value": 56,
+      "value": <%= Country.find(78).rating %>,
       "id": 78
     },
     {
       "hc-key": "tg",
-      "value": 57,
+      "value": <%= Country.find(72).rating %>,
       "id": 72
     },
     {
       "hc-key": "de",
-      "value": 58,
+      "value": <%= Country.find(81).rating %>,
       "id": 81
     },
     {
       "hc-key": "lk",
-      "value": 59,
+      "value": <%= Country.find(168).rating %>,
       "id": 168
     },
     {
       "hc-key": "gb",
-      "value": 60,
+      "value": <%= Country.find(65).rating %>,
       "id": 65
     },
     {
       "hc-key": "gy",
-      "value": 61,
+      "value": <%= Country.find(61).rating %>,
       "id": 0
     },
     {
       "hc-key": "cr",
-      "value": 62,
+      "value": <%= Country.find(14).rating %>,
       "id": 14
     },
     {
       "hc-key": "cm",
-      "value": 63,
+      "value": <%= Country.find(86).rating %>,
       "id": 86
     },
     {
       "hc-key": "kas",
-      "value": 64
+      "value": 0,
+      "id": 0
     },
     {
       "hc-key": "km",
-      "value": 65,
+      "value": <%= Country.find(147).rating %>,
       "id": 147
     },
     {
       "hc-key": "ug",
-      "value": 66,
+      "value": 0,
       "id": 0
     },
     {
       "hc-key": "tm",
-      "value": 67,
+      "value": <%= Country.find(159).rating %>,
       "id": 159
     },
     {
       "hc-key": "tt",
-      "value": 68,
+      "value": <%= Country.find(37).rating %>,
       "id": 37
     },
     {
       "hc-key": "nl",
-      "value": 69,
+      "value": <%= Country.find(28).rating %>,
       "id": 28
     },
     {
       "hc-key": "td",
-      "value": 70,
+      "value": <%= Country.find(96).rating %>,
       "id": 96
     },
     {
       "hc-key": "ge",
-      "value": 71,
+      "value": <%= Country.find(2).rating %>,
       "id": 146
     },
     {
       "hc-key": "ro",
-      "value": 72,
+      "value": <%= Country.find(122).rating %>,
       "id": 122
     },
     {
       "hc-key": "scr",
-      "value": 73,
+      "value": 0,
       "id": 0 //probably
     },
     {
       "hc-key": "lv",
-      "value": 74,
+      "value": <%= Country.find(117).rating %>,
       "id": 117
     },
     {
       "hc-key": "bz",
-      "value": 75
+      "value": 0,
+      "id": 0 //probably
     },
     {
       "hc-key": "mm",
-      "value": 76,
+      "value": <%= Country.find(174).rating %>,
       "id": 174
     },
     {
       "hc-key": "af",
-      "value": 77,
+      "value": <%= Country.find(162).rating %>,
       "id": 162
     },
     {
       "hc-key": "bi",
-      "value": 78,
+      "value": <%= Country.find(128).rating %>,
       "id": 128
     },
     {
       "hc-key": "by",
-      "value": 79,
+      "value": <%= Country.find(125).rating %>,
       "id": 125
     },
     {
       "hc-key": "gd",
-      "value": 80,
+      "value": <%= Country.find(32).rating %>,
       "id": 32
     },
     {
       "hc-key": "lr",
-      "value": 81,
+      "value": <%= Country.find(59).rating %>,
       "id": 59
     },
     {
       "hc-key": "gr",
-      "value": 82,
+      "value": <%= Country.find(114).rating %>,
       "id": 114
     },
     {
       "hc-key": "ls",
-      "value": 83,
+      "value": <%= Country.find(124).rating %>,
       "id": 124
     },
     {
       "hc-key": "gl",
-      "value": 84,
+      "value": <%= Country.find(48).rating %>,
       "id": 48
     },
     {
       "hc-key": "ad",
-      "value": 85,
+      "value": 0,
       "id": 0 //probably
     },
     {
       "hc-key": "mz",
-      "value": 86,
+      "value": <%= Country.find(134).rating %>,
       "id": 134
     },
     {
       "hc-key": "tj",
-      "value": 87,
+      "value": <%= Country.find(165).rating %>,
       "id": 165
     },
     {
       "hc-key": "th",
-      "value": 88,
+      "value": <%= Country.find(175).rating %>,
       "id": 175
     },
     {
       "hc-key": "ht",
-      "value": 89,
+      "value": <%= Country.find(197).rating %>,
       "id": 197
     },
     {
       "hc-key": "mx",
-      "value": 90,
+      "value": <%= Country.find(7).rating %>,
       "id": 7
     },
     {
       "hc-key": "zw",
-      "value": 91,
+      "value": <%= Country.find(126).rating %>,
       "id": 126
     },
     {
       "hc-key": "lc",
-      "value": 92,
+      "value": <%= Country.find(40).rating %>,
       "id": 40
     },
     {
       "hc-key": "in",
-      "value": 93,
+      "value": <%= Country.find(164).rating %>,
       "id": 164
     },
     {
       "hc-key": "vc",
-      "value": 94,
+      "value": <%= Country.find(39).rating %>,
       "id": 39
     },
     {
       "hc-key": "bt",
-      "value": 95,
+      "value": <%= Country.find(171).rating %>,
       "id": 171
     },
     {
       "hc-key": "vn",
-      "value": 96,
+      "value": <%= Country.find(179).rating %>,
       "id": 179
     },
     {
       "hc-key": "no",
-      "value": 97,
+      "value": <%= Country.find(79).rating %>,
       "id": 79
     },
     {
       "hc-key": "cz",
-      "value": 98,
+      "value": <%= Country.find(93).rating %>,
       "id": 93
     },
     {
       "hc-key": "ag",
-      "value": 99,
+      "value": 0,
       "id": 0 //checked
     },
     {
       "hc-key": "fj",
-      "value": 10,
+      "value": <%= Country.find(194).rating %>,
       "id": 194
     },
     {
       "hc-key": "hn",
-      "value": 11,
+      "value": <%= Country.find(12).rating %>,
       "id": 12
     },
     {
       "hc-key": "mu",
-      "value": 12,
+      "value": <%= Country.find(158).rating %>,
       "id": 158
     },
     {
       "hc-key": "do",
-      "value": 13,
+      "value": <%= Country.find(26).rating %>,
       "id": 26
     },
     {
       "hc-key": "lu",
-      "value": 14,
+      "value": <%= Country.find(200).rating %>,
       "id": 200
     },
     {
       "hc-key": "il",
-      "value": 15,
+      "value": <%= Country.find(139).rating %>,
       "id": 139
     },
     {
       "hc-key": "sm",
-      "value": 16,
+      "value": 0,
       "id": 0 //probably
     },
     {
       "hc-key": "pe",
-      "value": 17,
+      "value": <%= Country.find(20).rating %>,
       "id": 20
     },
     {
       "hc-key": "id",
-      "value": 18,
+      "value": <%= Country.find(173).rating %>,
       "id": 173
     },
     {
       "hc-key": "vu",
-      "value": 19,
+      "value": <%= Country.find(208).rating %>,
       "id": 208
     },
     {
       "hc-key": "mk",
-      "value": 10,
+      "value": <%= Country.find(112).rating %>,
       "id": 112
     },
     {
       "hc-key": "cd",
-      "value": 11,
+      "value": <%= Country.find(98).rating %>,
       "id": 98
     },
     {
       "hc-key": "cg",
-      "value": 12,
+      "value": <%= Country.find(97).rating %>,
       "id": 97
     },
     {
       "hc-key": "is",
-      "value": 13,
+      "value": <%= Country.find(51).rating %>,
       "id": 51
     },
     {
       "hc-key": "et",
-      "value": 14,
+      "value": <%= Country.find(143).rating %>,
       "id": 143
     },
     {
       "hc-key": "um",
-      "value": 15,
+      "value": 0,
       "id": 0
     },
     {
       "hc-key": "co",
-      "value": 16,
+      "value": <%= Country.find(22).rating %>,
       "id": 22
     },
     {
       "hc-key": "ser",
-      "value": 17,
+      "value": 0,
       "id": 0 //probably
     },
     {
       "hc-key": "bw",
-      "value": 18,
+      "value": <%= Country.find(121).rating %>,
       "id": 121
     },
     {
       "hc-key": "md",
-      "value": 19,
+      "value": <%= Country.find(129).rating %>,
       "id": 129
     },
     {
       "hc-key": "mg",
-      "value": 20,
+      "value": <%= Country.find(154).rating %>,
       "id": 154
     },
     {
       "hc-key": "ec",
-      "value": 12,
+      "value": <%= Country.find(17).rating %>,
       "id": 17
     },
     {
       "hc-key": "sn",
-      "value": 12,
+      "value": <%= Country.find(52).rating %>,
       "id": 52
     },
     {
       "hc-key": "tl",
-      "value": 23,
+      "value": <%= Country.find(173).rating %>,
       "id": 173 //redirect to Indonesia
     },
     {
       "hc-key": "fr",
-      "value": 24,
+      "value": <%= Country.find(69).rating %>,
       "id": 69
     },
     {
       "hc-key": "lt",
-      "value": 25,
+      "value": <%= Country.find(119).rating %>,
       "id": 119
     },
     {
       "hc-key": "rw",
-      "value": 26,
+      "value": <%= Country.find(131).rating %>,
       "id": 131
     },
     {
       "hc-key": "zm",
-      "value": 27,
+      "value": <%= Country.find(120).rating %>,
       "id": 120
     },
     {
       "hc-key": "gm",
-      "value": 28,
+      "value": <%= Country.find(53).rating %>,
       "id": 53
     },
     {
       "hc-key": "fo",
-      "value": 29,
+      "value": <%= Country.find(62).rating %>,
       "id": 62
     },
     {
       "hc-key": "gt",
-      "value": 30,
+      "value": <%= Country.find(9).rating %>,
       "id": 9
     },
     {
       "hc-key": "dk",
-      "value": 31,
+      "value": <%= Country.find(88).rating %>,
       "id": 88
     },
     {
       "hc-key": "ua",
-      "value": 32,
+      "value": <%= Country.find(116).rating %>,
       "id": 116
     },
     {
       "hc-key": "au",
-      "value": 33,
+      "value": <%= Country.find(68).rating %>,
       "id": 68
     },
     {
       "hc-key": "at",
-      "value": 34,
+      "value": <%= Country.find(89).rating %>,
       "id": 89
     },
     {
       "hc-key": "ve",
-      "value": 35,
+      "value": <%= Country.find(22).rating %>,
       "id": 22
     },
     {
       "hc-key": "pw",
-      "value": 36,
+      "value": <%= Country.find(187).rating %>,
       "id": 187
     },
     {
       "hc-key": "ke",
-      "value": 37,
+      "value": <%= Country.find(142).rating %>,
       "id": 142
     },
     {
       "hc-key": "la",
-      "value": 38,
+      "value": <%= Country.find(176).rating %>,
       "id": 176
     },
     {
       "hc-key": "bjn",
-      "value": 39,
+      "value": 0,
       "id": 0 //probably
     },
     {
       "hc-key": "tr",
-      "value": 40,
+      "value": <%= Country.find(127).rating %>,
       "id": 127
     },
     {
       "hc-key": "jp",
-      "value": 41,
+      "value": <%= Country.find(186).rating %>,
       "id": 186
     },
     {
       "hc-key": "al",
-      "value": 42,
+      "value": <%= Country.find(107).rating %>,
       "id": 107
     },
     {
       "hc-key": "om",
-      "value": 43,
+      "value": <%= Country.find(160).rating %>,
       "id": 160
     },
     {
       "hc-key": "it",
-      "value": 14,
+      "value": <%= Country.find(49).rating %>,
       "id": 49
     },
     {
       "hc-key": "bn",
-      "value": 45,
+      "value": <%= Country.find(182).rating %>,
       "id": 182
     },
     {
       "hc-key": "tn",
-      "value": 46,
+      "value": <%= Country.find(87).rating %>,
       "id": 87
     },
     {
       "hc-key": "hu",
-      "value": 47,
+      "value": <%= Country.find(105).rating %>,
       "id": 105
     },
     {
       "hc-key": "ru",
-      "value": 48,
+      "value": <%= Country.find(110).rating %>,
       "id": 110
     },
     {
       "hc-key": "lb",
-      "value": 49,
+      "value": <%= Country.find(140).rating %>,
       "id": 140
     },
     {
       "hc-key": "bb",
-      "value": 10,
+      "value": <%= Country.find(41).rating %>,
       "id": 41
     },
     {
       "hc-key": "br",
-      "value": 11,
+      "value": <%= Country.find(27).rating %>,
       "id": 27
     },
     {
       "hc-key": "ci",
-      "value": 15,
+      "value": <%= Country.find(67).rating %>,
       "id": 67
     },
     {
       "hc-key": "rs",
-      "value": 53,
+      "value": <%= Country.find(109).rating %>,
       "id": 109
     },
     {
       "hc-key": "gq",
-      "value": 54,
+      "value": 0,
       "id": 0
     },
     {
       "hc-key": "us",
-      "value": 55,
+      "value": <%= Country.find(2).rating %>,
       "id": 2
     },
     {
       "hc-key": "se",
-      "value": 16,
+      "value": <%= Country.find(90).rating %>,
       "id": 90
     },
     {
       "hc-key": "az",
-      "value": 57,
+      "value": <%= Country.find(153).rating %>,
       "id": 153
     },
     {
       "hc-key": "gw",
-      "value": 58,
+      "value": <%= Country.find(55).rating %>,
       "id": 55
     },
     {
       "hc-key": "sz",
-      "value": 59,
+      "value": <%= Country.find(132).rating %>,
       "id": 132
     },
     {
       "hc-key": "ca",
-      "value": 60,
+      "value": <%= Country.find(6).rating %>,
       "id": 6
     },
     {
       "hc-key": "kv",
-      "value": 61,
+      "value": <%= Country.find(111).rating %>,
       "id": 111
     },
     {
       "hc-key": "kr",
-      "value": 62,
+      "value": <%= Country.find(185).rating %>,
       "id": 185
     },
     {
       "hc-key": "mw",
-      "value": 63,
+      "value": <%= Country.find(137).rating %>,
       "id": 137
     },
     {
       "hc-key": "sk",
-      "value": 64,
+      "value": <%= Country.find(101).rating %>,
       "id": 101
     },
     {
       "hc-key": "cy",
-      "value": 65,
+      "value": <%= Country.find(136).rating %>,
       "id": 136
     },
     {
       "hc-key": "ba",
-      "value": 66,
+      "value": <%= Country.find(102).rating %>,
       "id": 102
     },
     {
       "hc-key": "pga",
-      "value": 67,
+      "value": 0,
       "id": 0
     },
     {
       "hc-key": "sg",
-      "value": 68,
+      "value": <%= Country.find(177).rating %>,
       "id": 177
     },
     {
       "hc-key": "tw",
-      "value": 69,
+      "value": <%= Country.find(183).rating %>,
       "id": 183
     },
     {
       "hc-key": "so",
-      "value": 70,
+      "value": <%= Country.find(149).rating %>,
       "id": 149
     },
     {
       "hc-key": "sol",
-      "value": 71,
+      "value": 0,
       "id": 0 //probably
     },
     {
       "hc-key": "uz",
-      "value": 72,
+      "value": <%= Country.find(161).rating %>,
       "id": 161
     },
     {
       "hc-key": "cf",
-      "value": 73,
+      "value": <%= Country.find(104).rating %>,
       "id": 104
     },
     {
       "hc-key": "pl",
-      "value": 74,
+      "value": <%= Country.find(108).rating %>,
       "id": 108
     },
     {
       "hc-key": "kw",
-      "value": 75,
+      "value": <%= Country.find(204).rating %>,
       "id": 204
     },
     {
       "hc-key": "er",
-      "value": 76,
+      "value": <%= Country.find(144).rating %>,
       "id": 144
     },
     {
       "hc-key": "ga",
-      "value": 77,
+      "value": <%= Country.find(84).rating %>,
       "id": 84
     },
     {
       "hc-key": "ee",
-      "value": 78,
+      "value": <%= Country.find(118).rating %>,
       "id": 118
     },
     {
       "hc-key": "es",
-      "value": 79,
+      "value": <%= Country.find(64).rating %>,
       "id": 64
     },
     {
       "hc-key": "iq",
-      "value": 80,
+      "value": <%= Country.find(148).rating %>,
       "id": 148
     },
     {
       "hc-key": "sv",
-      "value": 81,
+      "value": <%= Country.find(10).rating %>,
       "id": 10
     },
     {
       "hc-key": "ml",
-      "value": 82,
+      "value": <%= Country.find(60).rating %>,
       "id": 60
     },
     {
       "hc-key": "st",
-      "value": 83,
+      "value": 0,
       "id": 0
     },
     {
       "hc-key": "ir",
-      "value": 84,
+      "value": <%= Country.find(152).rating %>,
       "id": 152
     },
     {
       "hc-key": "sl",
-      "value": 85,
+      "value": <%= Country.find(57).rating %>,
       "id": 57
     },
     {
       "hc-key": "cnm",
-      "value": 86,
+      "value": 0,
       "id": 0 //probably
     },
     {
       "hc-key": "bs",
-      "value": 87,
+      "value": <%= Country.find(19).rating %>,
       "id": 19
     },
     {
       "hc-key": "sb",
-      "value": 88,
+      "value": <%= Country.find(190).rating %>,
       "id": 190
     },
     {
       "hc-key": "nz",
-      "value": 89,
+      "value": <%= Country.find(192).rating %>,
       "id": 192
     },
     {
       "hc-key": "mc",
-      "value": 90,
+      "value": 0,
       "id": 0 //probably
     },
     {
       "hc-key": "ss",
-      "value": 91,
+      "value": <%= Country.find(133).rating %>,
       "id": 133
     },
     {
       "hc-key": "kg",
-      "value": 92,
+      "value": <%= Country.find(167).rating %>,
       "id": 167
     },
     {
       "hc-key": "ae",
-      "value": 93,
+      "value": <%= Country.find(157).rating %>,
       "id": 157
     },
     {
       "hc-key": "ar",
-      "value": 94,
+      "value": <%= Country.find(29).rating %>,
       "id": 29
     },
     {
       "hc-key": "sd",
-      "value": 90,
+      "value": <%= Country.find(133).rating %>,
       "id": 133
     },
     {
       "hc-key": "bh",
-      "value": 80,
+      "value": <%= Country.find(155).rating %>,
       "id": 155
     },
     {
       "hc-key": "am",
-      "value": 97,
+      "value": <%= Country.find(150).rating %>,
       "id": 150
     },
     {
       "hc-key": "pg",
-      "value": 90,
+      "value": <%= Country.find(188).rating %>,
       "id": 188
     },
     {
       "hc-key": "cu",
-      "value": 90,
+      "value": <%= Country.find(15).rating %>,
       "id": 15
     }
     ];
@@ -1270,5 +1279,7 @@ Highcharts.theme = {
 Highcharts.setOptions(Highcharts.theme);
 
     </script>
+
+<% end %>
 
 <% end %>

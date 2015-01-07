@@ -26,6 +26,12 @@ class Review < ActiveRecord::Base
     ["1 star", "2 stars", "3 stars", "4 stars", "5 stars"]
   end
 
+  def update_overall_rating
+    @sum = (food_rating + culture_rating + nightlife_rating + landmark_rating + cost_rating + weather_rating) * 1.0
+    @average = (@sum / 6).round(1)
+    update_attributes(overall_rating: @average)
+  end
+
   def vote_average
     sum = 0
     votes.each do |vote|

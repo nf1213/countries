@@ -8,11 +8,12 @@
 <%#mw = MediaWiki::Gateway.new("http://en.wikipedia.org/w/api.php?format=jsonfm&action=parse&section=0&prop=text&page="+"#{@full}")%>
 <%#mw.login('RubyBot', 'pa$$w0rd')%>
 <%#mw.create('PageTitle', 'Hello world!', summary: 'My first page')%>
-
 <br />
+<h5> <%= link_to "Back to " + Country.find(@city.country_id).name + " page", country_path(@country) %> </h5>
 <h1><%= @city.name %></h1>
-
-<center><u><%=link_to "Write a New Travel Review", new_country_city_review_path(country_id: params[:country_id], city_id: params[:id])%></u></center>
+<center><p>City Rating: <b><%= @city.rating %></b> / 100</p>
+<br />
+<u><%=link_to "Write a New Travel Review", new_country_city_review_path(country_id: params[:country_id], city_id: params[:id])%></u></center>
 
 <%= paginate @reviews %>
 
@@ -44,7 +45,7 @@
             <td>Culture</td><td><% review.culture_rating.times do %> <img src="/star.png" width=20 height=20> <% end %></td>
           </tr>
           <tr>
-            <td><b>Overall</b></td><td></td>
+            <td><b>Overall</b></td><td><b><%= review.overall_rating %></b> / 5</td>
           </tr>
         </table>
       </div>
@@ -56,26 +57,22 @@
 
       <div id="votes">
         <%= form_for(:vote, :url => votes_path) do |f| %>
-          <div id="up_vote">
-            <%= f.hidden_field :value, value: 1 %>
-            <%= f.hidden_field :review_id, value: review.id %>
-            <%= f.submit "UP" %>
-          </div>
+          <%= f.hidden_field :value, value: 1 %>
+          <%= f.hidden_field :review_id, value: review.id %>
+          <%= f.submit "",  id: "up_vote" %>
         <% end %>
         Score: <%= review.vote_average %>
         <%= form_for(:vote, :url => votes_path) do |f| %>
-          <div id="down_vote">
-            <%= f.hidden_field :value, value: -1 %>
-            <%= f.hidden_field :review_id, value: review.id %>
-            <%= f.submit "DOWN" %>
-          </div>
+          <%= f.hidden_field :value, value: -1 %>
+          <%= f.hidden_field :review_id, value: review.id %>
+          <%= f.submit "",  id: "down_vote" %>
         <% end %>
       </div>
     </div>
 
       <center>
       <div style="display: block; clear: both; font-size: 14px">
-      <%= "Posted by: " + "#{review.user.username}" %>
+      <%= link_to "Posted by: #{review.user.username}", user_path(review.user) %>
       </div>
       <div style="font-size: 14px">
         <%= link_to "Edit Review", edit_country_city_review_path(country_id: params[:country_id], city_id: params[:id], id: review.id), :method => :get %>

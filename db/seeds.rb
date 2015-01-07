@@ -2632,9 +2632,9 @@ cities =
 
 cities.each do |entry|
   if !Country.exists?(name: entry["country"])
-    country = Country.create!(name: entry["country"])
+    country = Country.create!(name: entry["country"], rating: 0)
   else
-    country = Country.find_by(name: entry["country"])
+    country = Country.find_by(name: entry["country"], rating: 0)
   end
-  City.create!(name: entry["city"], country_id: country.id)
+  City.create!(name: entry["city"], country_id: country.id, rating: 0)
 end
