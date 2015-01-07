@@ -48,3 +48,15 @@ li {
   padding:5px;
   margin: 0 auto;
 }
+
+.top-bar {
+  background: none;
+  height: 58px;
+  line-height: 58px;
+  margin-bottom: 0;
+}
+
+.#title{
+    font-family:Lato;
+    font-size: 26px;
+}
