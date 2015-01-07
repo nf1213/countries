@@ -2,6 +2,6 @@
 <%= link_to 'Add City', new_admin_city_path %> <br />
 
 <% @cities.each do |city| %>
-  <%= city.name %>
+  <%= link_to city.name, admin_city_path(city) %>
   <%= link_to 'Delete', admin_city_path(city), method: :delete  %> <br />
 <% end %>

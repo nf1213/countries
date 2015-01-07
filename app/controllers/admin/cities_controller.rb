@@ -11,6 +11,11 @@ class Admin::CitiesController < ApplicationController
     @cities = City.all
   end
 
+  def show
+    @city = City.find(params[:id])
+    @reviews = Review.where(city_id: @city.id).page(params[:page]).per(5)
+  end
+
   def new
     @city = City.new
   end
