@@ -95,6 +95,9 @@ GEM
     elasticsearch-transport (1.0.6)
       faraday
       multi_json
+    email_spec (1.6.0)
+      launchy (~> 2.1)
+      mail (~> 2.2)
     erubis (2.7.0)
     excon (0.42.1)
     execjs (2.2.2)
@@ -346,6 +349,7 @@ DEPENDENCIES
   coveralls
   devise
   dotenv-rails
+  email_spec
   factory_girl
   fog
   foundation-rails
