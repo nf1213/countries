@@ -1,22 +1,25 @@
-<%= form_for(@city) do |f| %>
-<% if @city.errors.any? %>
-<div id="error_explanation">
-  <h2><%= pluralize(@city.errors.count, "error") %> prohibited this city from being saved:</h2>
-  <ul>
-    <% @city.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-    <% end %>
-  </ul>
-</div>
-<% end %>
-<div class="field">
-  <%= f.label :name %><br>
-  <%= f.text_field :name %>
-</div>
-<div class="field">
+<%= form_for [:admin, @city] do |f| %>
+  <% if @city.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@city.errors.count, "error") %> prohibited this city from being saved:</h2>
+      <ul>
+        <% @city.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
     <%= collection_select(:city, :country_id, Country.all, :id, :name, prompt: "Select Country") %>
-</div>
-<div class="actions">
-  <%= f.submit %>
-</div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
 <% end %>

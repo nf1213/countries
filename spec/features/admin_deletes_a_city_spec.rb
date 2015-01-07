@@ -21,7 +21,7 @@ Acceptance Criteria:
     click_on "Cities"
     expect(page).to have_content @city.name
     click_on "Delete"
-    expect(page).to have_content "City sucessfully deleted."
+    expect(page).to have_content "City successfully deleted."
     expect(page).to have_content "Admin Page"
   end
 

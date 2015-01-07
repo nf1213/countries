@@ -20,11 +20,12 @@ Acceptance Criteria:
     visit admin_index_path
     click_on "Cities"
     click_on "Add City"
-    select @country.name, from: "Country"
+    select @country.name, from: "city[country_id]"
     fill_in "Name", with: @city.name
     click_on "Create City"
-    expect(page).to have_content "City sucessfully added."
+    expect(page).to have_content "City successfully created."
     expect(page).to have_content "Admin Page"
+    expect(page).to have_content @city.name
   end
 
   scenario "Non-admin can't add a city" do

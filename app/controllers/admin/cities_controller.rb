@@ -1,28 +1,38 @@
 class Admin::CitiesController < ApplicationController
-  def index
-    @cities = City.all
+  before_action :check_admin
+
+  def check_admin
     if !current_user.admin
-      flash[:notice] = "Admins Only"
-      redirect_to root_path
+      redirect_to root_path, notice: "Admins Only"
     end
   end
 
-  def create
-
+  def index
+    @cities = City.all
   end
+
   def new
     @city = City.new
   end
 
-  def destroy
-    if !current_user.admin
-      flash[:notice] = "Admins Only"
-      redirect_to root_path
+  def create
+    @city = City.new(city_params)
+    if @city.save
+      redirect_to admin_cities_path, notice: "City successfully created."
     else
-      @city = City.find(params[:id])
-      @city.destroy
-      redirect_to admin_index_path
-      flash[:notice] = "City sucessfully deleted."
+      render :new
     end
+  end
+
+  def destroy
+    @city = City.find(params[:id])
+    @city.destroy
+    redirect_to admin_index_path, notice: "City successfully deleted."
+  end
+
+  private
+
+  def city_params
+    params.require(:city).permit(:country_id, :name)
   end
 end
