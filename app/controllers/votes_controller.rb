@@ -2,10 +2,10 @@ class VotesController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    review = Review.find(params[:vote][:review_id])
-    city = review.city
-    @user = review.user
-    country = city.country
+    @review = Review.find(params[:vote][:review_id])
+    @city = @review.city
+    @user = @review.user
+    @country = Country.find(@city.country_id)
     vote = Vote.new(vote_params)
     vote.user_id = current_user.id
     notice = ""
@@ -13,7 +13,7 @@ class VotesController < ApplicationController
       notice = "You have voted!"
       VoteMailer.vote_email(@review).deliver_now
     else
-      existing = review.votes.find_by(review_id: review.id, user_id: current_user.id)
+      existing = @review.votes.find_by(review_id: @review.id, user_id: current_user.id)
       if existing
         if existing.value != vote.value
           existing.update(value: vote.value)
@@ -24,7 +24,7 @@ class VotesController < ApplicationController
         end
       end
     end
-    redirect_to country_city_path(country, city), notice: notice
+    redirect_to country_city_path(@country, @city), notice: notice
   end
 
   private
