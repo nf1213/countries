@@ -2638,3 +2638,6 @@ cities.each do |entry|
   end
   City.create!(name: entry["city"], country_id: country.id, rating: 0)
 end
+
+
+User.create(username:"getschomp", email:ENV["SEEDED_USER_EMAIL"], password:ENV["SEEDED_USER_PASSWORD"], admin:true)
