@@ -18,18 +18,20 @@
 
  body {
     background-color: #808083;
+    font-family:Lato;
 }
 
 .col-3 {
   flex: 1;
   padding-left: 20px;
   margin-left: 20px;
+  margin: 0 auto;
 }
 
 .eqWrap {
   display: flex;
   padding:20px;
-
+  margin: 0 auto;
   width: 100%
 }
 
@@ -45,6 +47,19 @@ li {
 .city{
   padding:5px;
   margin: 0 auto;
+}
+
+
+.top-bar {
+  background: none;
+  height: 58px;
+  line-height: 58px;
+  margin-bottom: 0;
+}
+
+.#title{
+    font-family:Lato;
+    font-size: 26px;
 }
 
 .nav{
