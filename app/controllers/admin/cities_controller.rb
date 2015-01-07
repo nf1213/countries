@@ -7,6 +7,13 @@ class Admin::CitiesController < ApplicationController
     end
   end
 
+  def create
+
+  end
+  def new
+    @city = City.new
+  end
+
   def destroy
     if !current_user.admin
       flash[:notice] = "Admins Only"
