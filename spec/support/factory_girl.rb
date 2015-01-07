@@ -19,7 +19,7 @@ FactoryGirl.define do
     cost_rating 4
     weather_rating 5
     culture_rating 3
-    sequence(:description) { |n| "#{n}the house with the place of the city of the french people" }
+    sequence(:description) { |n| "#{n}the house with the place of the city." }
     user
     city
   end

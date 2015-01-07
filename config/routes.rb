@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     # roots 'Admin::cities#index'
-    resources :cities, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
+    resources :cities do
       resources :reviews, only: [:index, :show, :destroy]
     end
     resources :users, only: [:index, :show, :destroy]
@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   resources :countries, only: [:index, :show] do
     resources :cities, only: [:index, :show] do
-      resources :reviews, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+      resources :reviews
     end
   end
 

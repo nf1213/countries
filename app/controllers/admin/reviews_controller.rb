@@ -1,5 +1,4 @@
 class Admin::ReviewsController < ApplicationController
-
   def index
     @reviews = Review.all
   end
@@ -9,5 +8,4 @@ class Admin::ReviewsController < ApplicationController
     @review.destroy
     redirect_to admin_index_path, notice: "Review successfully deleted."
   end
-
 end
