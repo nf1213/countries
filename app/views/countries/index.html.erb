@@ -1,5 +1,10 @@
-<% if !Rails.env.test? %>
+<%= form_for search_path, method: :get do |f| %>
+  <%= f.label "Search for City:" %>
+  <%= text_field_tag :q, params[:q] %>
+  <%= submit_tag "Search", name: nil %>
+<% end %>
 
+<% if !Rails.env.test? %>
 <%= content_for :extra_footer do %>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
