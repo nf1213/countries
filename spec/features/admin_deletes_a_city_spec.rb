@@ -14,7 +14,8 @@ Acceptance Criteria:
 
   scenario "Admin can delete a city" do
     @admin = FactoryGirl.create(:user, admin: true)
-    @city = FactoryGirl.create(:city)
+    @country = FactoryGirl.create(:country)
+    @city = FactoryGirl.create(:city, country: @country)
     sign_in(@admin)
     visit admin_index_path
     click_on "Cities"
