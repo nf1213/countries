@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show, :destroy]
   end
 
+  get "search", to: "search#search"
+
   resources :countries, only: [:index, :show] do
     resources :cities, only: [:index, :show] do
       resources :reviews
