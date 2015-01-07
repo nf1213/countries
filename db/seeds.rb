@@ -2640,4 +2640,4 @@
 # end
 #
 #
-User.create(username:"getschomp", email:ENV["SEEDED_USER_EMAIL"], password:ENV["SEEDED_USER_PASSWORD"], admin:true)
+User.create(username:"nicolef", email:ENV["SEEDED_USER_EMAIL"], password:ENV["SEEDED_USER_PASSWORD"], admin:true)
