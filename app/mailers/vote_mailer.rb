@@ -1,9 +1,15 @@
 class VoteMailer < ApplicationMailer
   default from: 'notifications@example.com'
 
-  def welcome_email(user)
-    @user = user
-    mail(to: @user.email, subject: 'Welcome to My Awesome Site')
+  def vote_email(review)
+    @review = review
+    @user = review.user
+    mail(to: @user.email, subject: 'Post Upvoted')
   end
-end
 
+  # def welcome_email(user)
+  #   @user = user
+  #   mail(to: @user.email, subject: 'You have joined!')
+  # end
+
+end

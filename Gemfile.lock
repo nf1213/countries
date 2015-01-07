@@ -87,6 +87,9 @@ GEM
     dotenv (1.0.2)
     dotenv-rails (1.0.2)
       dotenv (= 1.0.2)
+    email_spec (1.6.0)
+      launchy (~> 2.1)
+      mail (~> 2.2)
     erubis (2.7.0)
     excon (0.42.1)
     execjs (2.2.2)
@@ -251,6 +254,10 @@ GEM
       netrc (~> 0.7)
     restclient (0.10.1)
       paint (~> 0.8)
+    rspec (3.1.0)
+      rspec-core (~> 3.1.0)
+      rspec-expectations (~> 3.1.0)
+      rspec-mocks (~> 3.1.0)
     rspec-core (3.1.7)
       rspec-support (~> 3.1.0)
     rspec-expectations (3.1.2)
@@ -328,6 +335,7 @@ DEPENDENCIES
   coveralls
   devise
   dotenv-rails
+  email_spec
   factory_girl
   fog
   foundation-rails
@@ -343,6 +351,7 @@ DEPENDENCIES
   rails (= 4.2.0)
   rails_12factor
   restclient
+  rspec
   rspec-rails
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
