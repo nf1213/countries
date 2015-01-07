@@ -26,7 +26,6 @@ gem 'foundation-rails'
 group :test do
   gem 'coveralls', require: false
 end
-gem 'foundation-rails'
 
 gem 'rspec-rails', group: [:development, :test]
 gem 'capybara', group: [:development, :test]
