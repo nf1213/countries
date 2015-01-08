@@ -4,7 +4,7 @@
   margin: 40px 8% 0px 8%;
   min-height: 320px;
   padding: 10px;
-  font-family: Trebuchet MS;
+  font-family: Lato;
   background-color: white;
 }
 
@@ -29,7 +29,7 @@ h1 {
 
 a {
   color: white;
-  font-family: Trebuchet MS;
+  font-family: Lato;
 }
 
 a:hover {
@@ -37,9 +37,10 @@ a:hover {
 }
 
 #container {
-  height: 500px;
+
+  height: 600px;
   min-width: 310px;
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
 }
 
@@ -67,4 +68,8 @@ a:hover {
   border-color: #bd2a31 transparent transparent transparent;
   background-color: white;
   padding: 0;
+}
+h3{
+  font-family:Avenir;
+  font-color:white;
 }

@@ -1,11 +1,55 @@
 #container {
-
+    height: 650px;
     min-width: 310px;
-    max-width: 2000px;
+    max-width: 1000px;
     margin: 0 auto;
+}
+#container2 {
+  min-width: 310px;
+  max-width: 300px;
+  margin: 0 auto;
+}
+.link a {
+  color: white;
+  margin: 100px 100px;
+  font-family: Lato;
 }
 .loading {
     margin-top: 10em;
     text-align: center;
     color: gray;
+}
+.search{
+  padding:0;
+  margin:0;
+}
+.search_label {
+  font-family:Lato;
+  color:white;
+  display:inline-block;
+}
+.search_feild {
+  color: #c0c0c0;
+  display:inline-block;
+}
+.search_button {
+  display:inline-block;
+}
+
+.inline{
+  display:inline;
+}
+
+#city{
+  margin: 0 auto;
+  text-align:canter;
+}
+
+.title{
+  color:white;
+}
+
+.cities_container{
+  max-width:800px;
+  margin: 0 auto;
 }
