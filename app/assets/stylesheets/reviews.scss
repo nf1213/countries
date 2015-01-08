@@ -6,6 +6,7 @@
   padding: 10px;
   font-family: Avenir;
   background-color: white;
+  overflow: auto;
 }
 
 .inline-left {
@@ -35,11 +36,15 @@
   display: inline-block;
   float: left;
   overflow: auto;
+  background-color: white;
 }
 
-#votes-and-user-info {
+#votes-and-userinfo {
   margin: 0px 10px;
   min-width: 100px;
+  display:inline-block;
+  float:left;
+  background-color: white
 }
 
 h1 {
