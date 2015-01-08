@@ -1,4 +1,10 @@
-<h3><%= "Add your review for #{@city.name}"  %></h3>
+<div>
+  <% if @review != nil and @review.errors.any? %>
+    <h3 style="color: red"><%= pluralize(@review.errors.count, "error") %> prohibited this question from being saved.<br />
+    Please select a rating for each of the following fields.</h3>
+  <% end %>
+</div>
 
+<h3><%= "Add your review for #{@city.name}"  %></h3>
 
 <%= render partial: "form_new" %>
