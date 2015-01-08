@@ -2,16 +2,16 @@
 <h1> <%= @user.username.capitalize %>'s Profile </h1>
 
   <% if @user.avatar.path == nil %>
-    <div style="margin-left: 20px;">
+    <div style="margin-left: 8%;">
       <img src=<%=image_path("cat.png")%> />
     </div>
   <%else%>
-    <div style="margin-left: 20px;">
+    <div style="margin-left: 8%;">
       <img src=<%= @user.avatar%> alt =<%= "avatar"%> />
     </div>
   <%end%>
 
-<ul>
+<ul style="margin-left: 8%;">
   <li>Country of origin: <%= @user.country_of_origin %></li>
   <% unless @user.unspecified_gender? %>
     <li>Gender: <%= @user.gender  %></li>
