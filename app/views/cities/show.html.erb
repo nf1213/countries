@@ -9,9 +9,8 @@
 <%#mw.login('RubyBot', 'pa$$w0rd')%>
 <%#mw.create('PageTitle', 'Hello world!', summary: 'My first page')%>
 <br />
-<h5> <%= link_to "Back to " + Country.find(@city.country_id).name + " page", country_path(@country) %> </h5>
 <h1><%= @city.name %></h1>
-<center><p>City Rating: <b><%= @city.rating %></b> / 100</p>
+<center><p style="color: white">City Rating: <b><%= @city.rating %></b> / 100</p>
 <br />
 <u><%=link_to "Write a New Travel Review", new_country_city_review_path(country_id: params[:country_id], city_id: params[:id])%></u></center>
 
@@ -86,4 +85,4 @@
 
 <% end %>
 <br />
-<center><%=link_to "Back", country_path(id: params[:country_id])%></center>
+<center> <%= link_to "Back to " + Country.find(@city.country_id).name + " page", country_path(@country) %> </center>

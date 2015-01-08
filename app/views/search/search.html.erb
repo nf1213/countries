@@ -7,7 +7,7 @@
 <%if @cities%>
   <% @cities.each do |city| %>
     <br>
-      <%=link_to "#{city.name} (#{Country.find(city.country_id).name})", country_city_path(id: city.id, country_id: city.country_id)%>
+      <%= link_to "#{city.name} (#{city.country})", country_city_path(id: city.id, country_id: city.country_id)%>
     </br>
   <%end%>
 <%end%>
