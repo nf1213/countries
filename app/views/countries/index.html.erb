@@ -1,5 +1,4 @@
 <div id="container2"><%= form_for search_path, method: :get do |f| %>
-  </br>
   <div class="search">
     <%= f.label "Search for City:", :class => 'search_label' %>
     <%= text_field_tag :q, params[:q], :class => 'search_feild' %>
@@ -380,7 +379,7 @@
     },
     {
       "hc-key": "ge",
-      "value": <%= Country.find(146).rating %>,
+      "value": <%= Country.find(2).rating %>,
       "id": 146
     },
     {
