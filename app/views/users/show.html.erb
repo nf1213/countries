@@ -1,3 +1,4 @@
+<div style="color: white;">
 <h1> <%= @user.username.capitalize %>'s Profile </h1>
 
   <% if @user.avatar.path == nil %>
@@ -17,36 +18,84 @@
   <% end %>
   <li>About: <%= @user.about %></li>
 </ul>
+</div>
 
-<h2>Reviews</h2>
+<% if @user.reviews %>
+
 <% @user.reviews.each do |review| %>
-<div>
-  <h4>Review for: <%= link_to "#{review.city.name}, #{review.city.country.name}", country_city_path(review.city.country, review.city) %></h4>
-  <ul>
-    <li>
-      Food: <%= review.food_rating %>
-    </li>
-    <li>
-      Nightlife: <%= review.nightlife_rating %>
-    </li>
-    <li>
-      Landmark: <%= review.landmark_rating %>
-    </li>
-    <li>
-      Cost: <%= review.cost_rating %>
-    </li>
-    <li>
-      Weather: <%= review.weather_rating %>
-    </li>
-    <li>
-      Culture: <%= review.culture_rating %>
-    </li>
-  </ul>
-  <%= review.description %>
+
+<div class="review">
+  <div id="ratings">
+    <table id="ratings-table">
+      <col width="100">
+      <col width="150">
+      <tr>
+        <td>Food</td><td><% review.food_rating.times do %> <img src="/star.png" width=20 height=20> <% end %></td>
+      </tr>
+      <tr>
+        <td>Nightlife</td><td><% review.nightlife_rating.times do %> <img src="/star.png" width=20 height=20> <% end %></td>
+      </tr>
+      <tr>
+        <td>Landmarks</td><td><% review.landmark_rating.times do %> <img src="/star.png" width=20 height=20> <% end %></td>
+      </tr>
+      <tr>
+        <td>Cost</td><td><% review.cost_rating.times do %> <img src="/star.png" width=20 height=20> <% end %></td>
+      </tr>
+      <tr>
+        <td>Weather</td><td><% review.weather_rating.times do %> <img src="/star.png" width=20 height=20> <% end %></td>
+      </tr>
+      <tr>
+        <td>Culture</td><td><% review.culture_rating.times do %> <img src="/star.png" width=20 height=20> <% end %></td>
+      </tr>
+      <tr>
+        <td><b>Overall</b></td><td><b><%= review.overall_rating %></b> / 5</td>
+      </tr>
+    </table>
   </div>
-  <br>
-  <%= button_to "Edit Review", edit_country_city_review_path(country_id: review.city.country.id, city_id: review.city.id, id: review.id), :method => :get %>
-  <div>
-    <%= button_to "Delete Review", country_city_review_path(country_id: review.city.country.id, city_id: review.city.id, id: review.id), :method => :delete %>
+
+  <div id="comments">
+    <center><u>Comments:</u></center><hr />
+    <%= simple_format(review.description) %>
   </div>
+
+  <div id="votes-and-userinfo">
+    <div>
+      <center>
+        <%= form_for(:vote, :url => votes_path) do |f| %>
+        <%= f.hidden_field :value, value: 1 %>
+        <%= f.hidden_field :review_id, value: review.id %>
+        <%= f.submit "",  id: "up_vote" %>
+        <% end %>
+        Score: <%= review.vote_average %>
+        <%= form_for(:vote, :url => votes_path) do |f| %>
+        <%= f.hidden_field :value, value: -1 %>
+        <%= f.hidden_field :review_id, value: review.id %>
+        <%= f.submit "",  id: "down_vote" %>
+        <% end %>
+      </center>
+    </div>
+    <div><center>
+      <% if review.user.avatar.path == nil %>
+      <img src="<%= image_path("cat.png") %>" style="height: 80px"/>
+      <% else %>
+      <img src="<%= review.user.avatar %>" alt="<%= "avatar" %>" />
+      <% end %><br />
+      Posted by: <%= link_to "#{review.user.username}", user_path(review.user), class: "black-underline" %><br />
+      <%= link_to "Edit Review", edit_country_city_review_path(review.city.country, review.city, review), :method => :get, class: "black-underline" %>
+      |
+      <%= link_to "Delete Review", country_city_review_path(review.city.country, review.city, review), :method => :delete, class: "black-underline" %>
+    </center></div>
+  </div>
+</div>
+
+<center>
+  <div style="display: block; clear: both; font-size: 14px">
+  </div>
+  <div style="font-size: 14px">
+
+
+  </div>
+</center>
+
+<% end %>
 <% end %>
