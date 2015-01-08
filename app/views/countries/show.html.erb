@@ -1,15 +1,15 @@
 <h1 class="title"><%=@country.name%></h1>
 
-<% groups_of = (@cities.size.to_f/3).ceil %>
-<div class = "container">
+<% groups_num = (@cities.size.to_f/3).ceil %>
+<div class = "cities_container">
   <div class = "eqWrap">
     <% if @cities.size == 0 %>
       <p> no cities have been added to this country, ask an admin to add one</p>
     <% else %>
-      <% @cities.in_groups_of(groups_of, false) do |group| %>
+      <% @cities.in_groups_of(groups_num, false) do |group| %>
       <div class="column">
         <% group.each do |city| %>
-        <div class="city"><%= link_to city.name, country_city_path(@country, id: city.id) %></div>
+        <div id="city"><%= link_to city.name, country_city_path(@country, id: city.id) %></div>
         <% end %>
       </div>
       <% end %>
