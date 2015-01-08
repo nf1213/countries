@@ -3,6 +3,8 @@ class City < ActiveRecord::Base
   has_many :reviews
   validates :name, presence: true
   validates :country, presence: true
+  validates :rating, numericality: { only_integer: true,
+    greater_than_or_equal_to: 0, less_than_or_equal_to: 100 }
   def update_rating
     @count = 0
     @sum = 0

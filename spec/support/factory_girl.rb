@@ -27,6 +27,7 @@ FactoryGirl.define do
   factory :city do
     sequence(:name) { |n| "Space Boston#{n}" }
     country
+    rating 0
 
     factory :city_with_reviews do
 
