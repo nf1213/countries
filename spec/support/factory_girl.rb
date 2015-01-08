@@ -19,6 +19,7 @@ FactoryGirl.define do
     cost_rating 4
     weather_rating 5
     culture_rating 3
+    overall_rating 0
     sequence(:description) { |n| "#{n}the house with the place of the city." }
     user
     city
@@ -27,21 +28,12 @@ FactoryGirl.define do
   factory :city do
     sequence(:name) { |n| "Space Boston#{n}" }
     country
-
-    factory :city_with_reviews do
-
-      transient do
-        reviews_count 5
-      end
-
-      after(:create) do |city, evaluator|
-        create_list(:review, evaluator.reviews_count, city: city)
-      end
-    end
+    rating 0
   end
 
   factory :country do
     sequence(:name) { |n| "Space Massachussettes#{n}" }
+    rating 0
 
     factory :country_with_cities do
 
