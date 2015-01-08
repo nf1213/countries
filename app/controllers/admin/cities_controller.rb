@@ -22,6 +22,7 @@ class Admin::CitiesController < ApplicationController
 
   def create
     @city = City.new(city_params)
+    @city.rating = 0
     if @city.save
       redirect_to admin_cities_path, notice: "City successfully created."
     else
