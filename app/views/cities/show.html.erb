@@ -1,13 +1,4 @@
-<%#if @city.name.join(' ','_')%>
-<%#@full = @city.name.join(' ','_')%>
-<%#else%>
 <%@full = @city.name%>
-<%#end%>
-<%#page = JSON.parse(open("http://en.wikipedia.org/w/api.php?&action=parse&section=0&prop=text&page="+"#{@full}"))%>
-
-<%#mw = MediaWiki::Gateway.new("http://en.wikipedia.org/w/api.php?format=jsonfm&action=parse&section=0&prop=text&page="+"#{@full}")%>
-<%#mw.login('RubyBot', 'pa$$w0rd')%>
-<%#mw.create('PageTitle', 'Hello world!', summary: 'My first page')%>
 <br />
 <h1><%= @city.name %></h1>
 <center><p style="color: white">City Rating: <b><%= @city.rating %></b> / 100</p>
@@ -21,8 +12,8 @@
   <% @reviews.each do |review| %>
 
     <div class="review">
-      <div class="inline-left" style="margin: 10px 20px">
-        <table style="border-radius: 10px; width: 250px">
+      <div id="ratings">
+        <table id="ratings-table">
           <col width="100">
           <col width="150">
           <tr>
@@ -49,12 +40,14 @@
         </table>
       </div>
 
-      <div class="inline-left" id="comments">
-        <br /><u>Comments:</u><hr />
-        <p><%= "#{review.description}" %></p>
+      <div id="comments">
+        <center><u>Comments:</u></center><hr />
+      <%= simple_format(review.description) %>
       </div>
 
-      <div id="votes">
+      <div id="votes-and-userinfo">
+        <div>
+          <center>
         <%= form_for(:vote, :url => votes_path) do |f| %>
           <%= f.hidden_field :value, value: 1 %>
           <%= f.hidden_field :review_id, value: review.id %>
@@ -66,17 +59,27 @@
           <%= f.hidden_field :review_id, value: review.id %>
           <%= f.submit "",  id: "down_vote" %>
         <% end %>
+      </center>
+        </div>
+        <div><center>
+          <% if review.user.avatar.path == nil %>
+            <img src="<%= image_path("cat.png") %>" style="height: 80px"/>
+          <% else %>
+            <img src="<%= review.user.avatar %>" alt="<%= "avatar" %>" />
+          <% end %><br />
+          Posted by: <%= link_to "#{review.user.username}", user_path(review.user), class: "black-underline" %><br />
+          <%= link_to "Edit Review", edit_country_city_review_path(country_id: params[:country_id], city_id: params[:id], id: review.id), :method => :get, class: "black-underline" %>
+          |
+          <%= link_to "Delete Review", country_city_review_path(country_id: params[:country_id], city_id: params[:id], id: review.id), :method => :delete, class: "black-underline" %>
+        </center></div>
       </div>
     </div>
 
       <center>
       <div style="display: block; clear: both; font-size: 14px">
-      <%= link_to "Posted by: #{review.user.username}", user_path(review.user) %>
       </div>
       <div style="font-size: 14px">
-        <%= link_to "Edit Review", edit_country_city_review_path(country_id: params[:country_id], city_id: params[:id], id: review.id), :method => :get %>
-         |
-        <%= link_to "Delete Review", country_city_review_path(country_id: params[:country_id], city_id: params[:id], id: review.id), :method => :delete %>
+
 
       </div>
       </center>

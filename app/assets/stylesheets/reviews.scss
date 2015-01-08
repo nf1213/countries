@@ -1,11 +1,12 @@
 .review {
   border: 2px solid;
-  border-radius: 20px;
+  border-radius: 10px;
   margin: 40px 8% 0px 8%;
   min-height: 320px;
   padding: 10px;
   font-family: Avenir;
   background-color: white;
+  overflow: auto;
 }
 
 .inline-left {
@@ -13,13 +14,37 @@
   float: left;
 }
 
-#comments {
-  margin: 20px 20px;
-  width:400px;
-  height: 260px;
-  text-align: center;
+#ratings {
+  margin: 10px 10px;
+  display: inline-block;
+  float: left;
+}
+
+#ratings-table {
+  border-radius: 10px;
   border: 1px solid #b0b0b0;
-  border-radius: 20px
+  width: 250px;
+}
+
+#comments {
+  margin: 10px 10px;
+  padding: 20px 20px;
+  width: 50%;
+  height: 260px;
+  border: 1px solid #b0b0b0;
+  border-radius: 10px;
+  display: inline-block;
+  float: left;
+  overflow: auto;
+  background-color: white;
+}
+
+#votes-and-userinfo {
+  margin: 0px 10px;
+  min-width: 100px;
+  display:inline-block;
+  float:left;
+  background-color: white
 }
 
 h1 {
@@ -33,7 +58,7 @@ a {
 }
 
 a:hover {
-  color: #58D3F7;
+  color: #3366FF; //#58D3F7;
 }
 
 .loading {
@@ -61,7 +86,12 @@ a:hover {
   background-color: white;
   padding: 0;
 }
-h3{
-  font-family:Avenir;
-  font-color:white;
+
+h3 {
+  font-family: Avenir;
+  font-color: white;
+}
+
+.black {
+  color: black;
 }
