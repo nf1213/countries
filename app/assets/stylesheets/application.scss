@@ -1,3 +1,6 @@
+@import "foundation_and_overrides";
+
+
 /*  * This is a manifest file that'll be compiled into application.css, which will include all the files
 * listed below.
 *
@@ -12,7 +15,9 @@
 *= require_tree .
 *= require_self
 *= require foundation_and_overrides
+*= require foundation
 */
+
  body {
     background-color: #2a2a2b;
     font-family:Avenir;
@@ -37,7 +42,7 @@ li {
   list-style:none;
 }
 
-.#title{
+#title{
     font-family:Avenir;
     font-size: 26px;
 }
@@ -76,8 +81,8 @@ label{
 }
 
 h3{
-  font-size:50px
-  font-family:Avenir;
+  font-size:50px;
+  font-family: Avenir;
   color:white;
   text-align:center;
 }
