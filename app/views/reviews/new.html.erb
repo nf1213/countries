@@ -1,7 +1,7 @@
 <div>
   <% if @review != nil and @review.errors.any? %>
     <h3 style="color: red"><%= pluralize(@review.errors.count, "error") %> prohibited this question from being saved.<br />
-    Please select a rating for each of the following fields.</h3>
+    Please select a valid rating for each field.</h3>
   <% end %>
 </div>
 
