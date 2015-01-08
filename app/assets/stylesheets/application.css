@@ -13,6 +13,7 @@
 *= require_self
 *= require foundation_and_overrides
 */
+
  body {
     background-color: #2a2a2b;
     font-family:Avenir;
@@ -37,7 +38,7 @@ li {
   list-style:none;
 }
 
-.#title{
+#title{
     font-family:Avenir;
     font-size: 26px;
 }
@@ -76,8 +77,8 @@ label{
 }
 
 h3{
-  font-size:50px
-  font-family:Avenir;
+  font-size:50px;
+  font-family: Avenir;
   color:white;
   text-align:center;
 }
@@ -87,11 +88,17 @@ h3{
   max-width:570px;
 }
 
-.flash{
+#flash{
   padding-top:20px;
-  background-color: #4c4c4c;
+  background-color: #686868;
   font-size:20px;
   font-family:Avenir;
   color:white;
   text-align:center;
+  padding-bottom:20px;
+}
+
+h2{
+  font-family:Avenir;
+  color:white;
 }

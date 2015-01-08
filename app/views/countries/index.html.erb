@@ -1,10 +1,9 @@
 <div id="container2"><%= form_for search_path, method: :get do |f| %>
-  </br>
-  <div class="search">
-    <%= f.label "Search for City:", :class => 'search_label' %>
-    <%= text_field_tag :q, params[:q], :class => 'search_feild' %>
-    <%= submit_tag "Search", name: nil, :class => 'search_button' %>
-  </div>
+  <ul class="search">
+    <li><%= f.label "Search for City:", :class => 'search_label' %></li>
+    <li><%= text_field_tag :q, params[:q], :class => 'search_feild' %></li>
+    <li><%= button_tag "Search", name: nil, :class => 'search_button' %></li>
+  </ul>
 <% end %></div>
 
 <% if !Rails.env.test? %>

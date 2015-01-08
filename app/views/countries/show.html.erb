@@ -9,7 +9,7 @@
       <% @cities.in_groups_of(groups_num, false) do |group| %>
       <div class="column">
         <% group.each do |city| %>
-        <div id="city"><%= link_to city.name, country_city_path(@country, id: city.id) %></div>
+          <div id="city"><%= link_to city.name, country_city_path(@country, id: city.id) %></div>
         <% end %>
       </div>
       <% end %>
