@@ -60,10 +60,6 @@ li {
   display:inline-block;
 }
 
-.column{
-  margin: 0 auto;
-}
-
 label{
   color: #d0d0d0;
 }
@@ -81,6 +77,20 @@ label{
 
 h3{
   font-size:50px
+  font-family:Avenir;
+  color:white;
+  text-align:center;
+}
+
+.profile_form{
+  margin: 0 auto;
+  max-width:570px;
+}
+
+.flash{
+  padding-top:20px;
+  background-color: #4c4c4c;
+  font-size:20px;
   font-family:Avenir;
   color:white;
   text-align:center;

@@ -37,9 +37,10 @@
       </ul>
     </section>
   </nav>
+
 <div class="container">
   <%- flash.each do |key, value| -%>
-  <div class="flash flash-<%= key %>">
+  <div class="flash">
     <%= value %>
   </div>
   <%- end -%>

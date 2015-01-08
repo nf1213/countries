@@ -1,5 +1,6 @@
-<div class="rating">
+
   <%= form_for [@country, @city, @review] do |f| %>
+<div class="rating">
       <%= f.label :food_rating %>
       <% Review.stars.each do |star| %>
       <%= f.radio_button :food_rating, star[0].to_i %>
