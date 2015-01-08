@@ -1,24 +1,22 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
- *= require_self
- *= require foundation_and_overrides
-
- */
-
+/*  * This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+* or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any styles
+* defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+* file per style scope.
+*
+*= require_tree .
+*= require_self
+*= require foundation_and_overrides
+*/
  body {
-    background-color: #808083;
-    font-family:Lato;
+    background-color: #2a2a2b;
+    font-family:Avenir;
+    font-color: white;
 }
 
 .col-3 {
@@ -39,26 +37,8 @@ li {
   list-style:none;
 }
 
-.container{
-  margin: 0 auto;
-  width: 80%;
-}
-
-.city{
-  padding:5px;
-  margin: 0 auto;
-}
-
-
-.top-bar {
-  background: none;
-  height: 58px;
-  line-height: 58px;
-  margin-bottom: 0;
-}
-
 .#title{
-    font-family:Lato;
+    font-family:Avenir;
     font-size: 26px;
 }
 
@@ -78,4 +58,46 @@ li {
 
 .delete_button{
   display:inline-block;
+}
+
+label{
+  color: #d0d0d0;
+}
+
+.rating{
+  margin: 0 auto;
+  text-align:center;
+}
+
+.description{
+  margin: 0 auto;
+  text-align:center;
+  max-width:400px;
+}
+
+h3{
+  font-size:50px
+  font-family:Avenir;
+  color:white;
+  text-align:center;
+}
+
+.profile_form{
+  margin: 0 auto;
+  max-width:570px;
+}
+
+#flash{
+  padding-top:20px;
+  background-color: #4c4c4c;
+  font-size:20px;
+  font-family:Avenir;
+  color:white;
+  text-align:center;
+  padding-bottom:20px;
+}
+
+h2{
+  font-family:Avenir;
+  color:white;
 }

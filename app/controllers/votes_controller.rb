@@ -7,15 +7,18 @@ class VotesController < ApplicationController
     country = city.country
     vote = Vote.new(vote_params)
     vote.user_id = current_user.id
+    @creator = review.user
     notice = ""
     if vote.save
       notice = "You have voted!"
+      VoteMailer.vote_email(review).deliver_now
     else
       existing = review.votes.find_by(review_id: review.id, user_id: current_user.id)
       if existing
         if existing.value != vote.value
           existing.update(value: vote.value)
           notice = "You have voted!"
+          VoteMailer.vote_email(review).deliver_now
         else
           notice = "You already voted!"
         end
