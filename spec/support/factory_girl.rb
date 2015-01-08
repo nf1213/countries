@@ -43,6 +43,7 @@ FactoryGirl.define do
 
   factory :country do
     sequence(:name) { |n| "Space Massachussettes#{n}" }
+    rating 0
 
     factory :country_with_cities do
 

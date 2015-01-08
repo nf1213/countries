@@ -12,6 +12,4 @@ RSpec.describe City do
 
   it { should have_valid(:rating).when(0, 50, 100) }
   it { should_not have_valid(:rating).when(-1, 101) }
-
-  
 end

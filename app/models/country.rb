@@ -1,6 +1,8 @@
 class Country < ActiveRecord::Base
   has_many :cities
   validates :name, presence: true, uniqueness: true
+  validates :rating, numericality: { only_integer: true,
+    greater_than_or_equal_to: 0, less_than_or_equal_to: 100 }
   def update_rating
     @count = 0
     @sum = 0
