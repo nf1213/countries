@@ -102,3 +102,8 @@ h2{
   font-family:Avenir;
   color:white;
 }
+
+.login_container{
+  margin: 0 auto;
+  max-width:570px;
+}
