@@ -20,7 +20,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'carrierwave'
 gem 'fog'
-
+gem 'mandrill-api'
 gem 'nokogiri'
 gem 'mediawiki-gateway'
 gem 'restclient'
@@ -48,9 +48,9 @@ gem 'foundation-rails'
 
 group :test do
   gem 'coveralls', require: false
+  gem 'email_spec'
 end
 
-gem 'email_spec'
 gem 'rspec-rails', group: [:development, :test]
 gem 'capybara', group: [:development, :test]
 gem 'launchy', group: [:development, :test]

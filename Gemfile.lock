@@ -200,6 +200,9 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    mandrill-api (1.0.53)
+      excon (>= 0.16.0, < 1.0)
+      json (>= 1.7.7, < 2.0)
     mediawiki-gateway (1.0.0)
       rest-client (~> 1.7)
     method_source (0.8.2)
@@ -357,6 +360,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   launchy
+  mandrill-api
   mediawiki-gateway
   mini_magick
   nokogiri
