@@ -1,5 +1,5 @@
 
-  <%= form_for [@country, @city, @review] do |f| %>
+<%= form_for [@country, @city, @review] do |f| %>
 <div class="rating">
       <%= f.label :food_rating %>
       <% Review.stars.each do |star| %>
