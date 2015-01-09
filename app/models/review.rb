@@ -17,8 +17,7 @@ class Review < ActiveRecord::Base
     greater_than_or_equal_to: 1, less_than_or_equal_to: 5 }
   validates :user, presence: true,
     uniqueness: {scope: :city_id}
-  validates :city, presence: true,
-    uniqueness: {scope: :user_id}
+  validates :city, presence: true
   def star_selections
     [["1 star", 1], ["2 star", 2], ["3 star", 3], ["4 star", 4], ["5 star", 5]]
   end
