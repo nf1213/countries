@@ -2632,12 +2632,9 @@ cities =
 
 cities.each do |entry|
   if !Country.exists?(name: entry["country"])
-    country = Country.create!(name: entry["country"], rating: 0)
+    country = Country.find_or_create_by(name: entry["country"], rating: 0)
   else
     country = Country.find_by(name: entry["country"], rating: 0)
   end
-  City.create!(name: entry["city"], country_id: country.id, rating: 0)
+  City.find_or_create_by(name: entry["city"], country_id: country.id, rating: 0)
 end
-
-
-User.create(username:"nicolef", email:ENV["SEEDED_USER_EMAIL"], password:ENV["SEEDED_USER_PASSWORD"], admin:true)
