@@ -13,7 +13,7 @@ class Country < ActiveRecord::Base
       end
     end
     @count = 1 if @count == 0
-    @rating = @sum.to_f / @count.floor
+    @rating = (@sum.to_f / @count.floor).to_i
     update_attributes(rating: @rating)
   end
 end

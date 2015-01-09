@@ -13,7 +13,7 @@ class City < ActiveRecord::Base
       @count += 1
     end
     @count = 1 if @count == 0
-    @rating = 20 * @sum.to_f / @count.floor
+    @rating = (20 * @sum.to_f / @count.floor).to_i
     update_attributes(rating: @rating)
   end
 end
