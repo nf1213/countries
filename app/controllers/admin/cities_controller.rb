@@ -8,7 +8,7 @@ class Admin::CitiesController < ApplicationController
   end
 
   def index
-    @cities = City.all
+    @cities = City.order("name ASC")
   end
 
   def show
