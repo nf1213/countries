@@ -60,7 +60,9 @@ class ReviewsController < ApplicationController
     @country = Country.find(params[:country_id])
     @city = City.find(params[:city_id])
     @review = Review.find(params[:id])
-    if @review.user != current_user || !current_user.admin
+    # if the user who created the review is not the current user or the current user is not an admin
+      #they can delete
+    unless @review.user == current_user || current_user.admin
       redirect_to country_city_path(@country, @city), notice: "You are not authorized to destroy this review"
     else
       @review.destroy
