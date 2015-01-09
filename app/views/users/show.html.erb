@@ -25,6 +25,7 @@
 <% @user.reviews.each do |review| %>
 
 <div class="review">
+  <h4>Review for: <%= link_to "#{review.city.name}, #{review.city.country.name}", country_city_path(review.city.country, review.city), id:"profile_link" %></h4>
   <div id="ratings">
     <table id="ratings-table">
       <col width="100">
