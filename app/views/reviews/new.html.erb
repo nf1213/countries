@@ -1,5 +1,8 @@
 <div>
-  <% if @review != nil and @review.errors.any? %>
+  <% if @review != nil && @review.errors.full_messages.include?("User has already been taken")    %>
+  <h3 style="color: red">
+    You have already reviewed this city.</h3>
+  <% elsif @review != nil and @review.errors.any? %>
     <h3 style="color: red"><%= pluralize(@review.errors.count, "error") %> prohibited this question from being saved.<br />
     Please select a valid rating for each field.</h3>
   <% end %>
