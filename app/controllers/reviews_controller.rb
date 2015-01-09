@@ -60,12 +60,12 @@ class ReviewsController < ApplicationController
     @country = Country.find(params[:country_id])
     @city = City.find(params[:city_id])
     @review = Review.find(params[:id])
-    if @review.user != current_user || review.user.admin
+    if @review.user != current_user || !review.user.admin
       redirect_to country_city_path(@country, @city), notice: "You are not authorized to destroy this review"
+    else
+      @review.destroy
+      redirect_to country_city_path(@country, @city), notice: "Review deleted"
     end
-    @review.destroy
-
-    redirect_to country_city_path(@country, @city), notice: "Review deleted"
   end
 
   private
