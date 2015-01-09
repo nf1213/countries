@@ -1,5 +1,7 @@
 <h1 class="title"><%=@country.name%></h1>
 
+<center><h2 style="color:#a3a3a3; font-size:28px;">Overall Rating: <%= @country.rating %></h2></center>
+
 <% groups_num = (@cities.size.to_f/3).ceil %>
 <div class = "cities_container">
   <div class = "eqWrap">
@@ -9,7 +11,7 @@
       <% @cities.in_groups_of(groups_num, false) do |group| %>
       <div class="column">
         <% group.each do |city| %>
-          <div id="city"><%= link_to city.name, country_city_path(@country, id: city.id) %></div>
+          <div id="city" ><%= link_to city.name, country_city_path(@country, id: city.id) %><p style="color:#8b8b8b; font-size:10px;">(<%= city.reviews.size %> Reviews)</p></div>
         <% end %>
       </div>
       <% end %>
